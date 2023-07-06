@@ -1,9 +1,11 @@
 from django.shortcuts import render
 
+from therapy.models import Services
+
 
 def index(request):
     context = {
-        'title': 'Главная страница'
+        'title': 'Главная страница',
 
     }
 

@@ -100,7 +100,7 @@ font-size:2.5rem;
   --light-teal:rgb(238, 255, 255);
   --content-size:1280px;
   --wild-text: 	#D50000;
-  --header-height:75px;
+  --header-height:80px;
   --complex-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
   7px 7px 20px 0px rgba(0,0,0,.1),
   4px 4px 5px 0px rgba(0,0,0,.1);
@@ -122,6 +122,37 @@ max-width:100%;
       display: flex;
       flex-direction: column;
   }
+
+
+
+  .header-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    max-height: var(--header-height);   
+    align-items: center;
+    background: var(--light-teal);
+    justify-items: center;
+  }
+
+  .service-wrapper{
+    padding: 1rem;
+  }
+  .logo-wrapper{
+    padding: 5px;
+
+  }
+  .logo-wrapper  img{
+    height:60px;
+
+  }
+
+
+
+
+
+
+
+
 
 footer{
   text-align: center;
