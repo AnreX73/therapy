@@ -105,12 +105,21 @@ font-size:2.5rem;
   7px 7px 20px 0px rgba(0,0,0,.1),
   4px 4px 5px 0px rgba(0,0,0,.1);
 }
-
+hr{
+  border: 1px solid blue;
+  width: 80%;
+  margin: 0 auto;
+  opacity: 10%;
+}
 body {
 font-family: 'Oswald', sans-serif;
-height:auto;
-max-width:100%;
-/* padding: 10px; */
+display: flex;
+flex-direction: column;
+min-height:100vh;
+justify-content: center;
+background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
   /*общая оболочка*/
@@ -130,7 +139,6 @@ max-width:100%;
     grid-template-columns: repeat(3,1fr);
     max-height: var(--header-height);   
     align-items: center;
-    background: var(--light-teal);
     justify-items: center;
   }
 
@@ -157,7 +165,9 @@ max-width:100%;
 footer{
   text-align: center;
   padding: 15px;
-  background: var(--light-teal);
+  color:#fff;
+  background: linear-gradient(to right, #CB3066, #16BFFD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 
 }
