@@ -5,11 +5,14 @@ from therapy.models import Services, Graphics, Coaches
 
 def index(request):
     logo = Graphics.objects.get(title='логотип')
-    image = Coaches.objects.get(pk=1)
+    coaches = Coaches.objects.all()
+    main_image = Graphics.objects.get(title='картинка на главную')
+    
     context = {
         'title': 'Главная страница',
         'logo': logo,
-        'coach_photo': image,
+        'coaches': coaches,
+        'main_image':main_image
 
     }
 

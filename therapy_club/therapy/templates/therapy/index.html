@@ -2,6 +2,9 @@
 
 
 {% block content %}
-<h1>{{title}}</h1>
-{% include 'therapy/components/coach_card.html' %}
+<div class="main-page-img-wrapper">
+    <img src="{{main_image.image.url}}" alt="{{main_img.title}}">
+    
+</div>
+{% include 'therapy/components/coach_list.html' %}
 {% endblock content %}
