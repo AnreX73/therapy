@@ -1,5 +1,20 @@
+<h3>компонент "карточка тренера"</h3>
 <div class="coach-card">
-    <div class="coach-card-box"></div>
-    <div class="coach-card-box"></div>
-    <div class="coach-card-circle"></div>
+    <div class="coach-card-box">
+        {% for i in coach_photo.coach_services.all %}
+        <h3>{{ i.title }}</h3>
+        {% endfor %}
+    </div>
+    <div class="coach-card-box coach-card-circle rotate-scale-up">
+        
+            <img class="gallery-image" src="{{coach_photo.image.url}}" alt="{{logo.title}}">
+        
+
+    </div>
+    <div class="coach-card-box">
+        <h3>{{ coach_photo.title }}</h3>
+        {{ coach_photo.content|safe }}
+    </div>
 </div>
+    
+   
