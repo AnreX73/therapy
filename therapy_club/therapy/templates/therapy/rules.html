@@ -1,0 +1,10 @@
+{% extends 'therapy/base.html' %}
+
+
+{% block content %}
+<hr>
+<div class="rules-wrapper">
+<h1>{{ rules.title }}</h1>
+<p>{{ rules.content|safe }}</p>
+</div>
+{% endblock content %}

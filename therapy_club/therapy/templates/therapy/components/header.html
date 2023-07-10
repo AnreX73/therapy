@@ -1,7 +1,7 @@
 
 
 <header>
-<div class="header-wrapper">
+<!-- <div class="header-wrapper">
 <div class="header-wrapper-first-group ">
   <a href="" class="service-wrapper">
     УСЛУГИ
@@ -26,9 +26,37 @@
    <a href="" class="service-wrapper ">
     ТЕЛЕФОН
   </a>
-  <a href="" class="service-wrapper ">
+  <a href="" class="service-wrapper "> 
     КОНТАКТЫ
   </a>
 </div>
-</div>
+</div> -->
+<a href="/" class="logo">
+   <img class="gallery-image" src="{{logo.image.url}}" alt="{{logo.title}}">
+</a>
+<nav>
+  <ul>
+    <li><a href="">УСЛУГИ &#9660; </a>
+    <ul>
+      {% for service_cat in service_category %}
+        <li>
+          <a href="">
+            <div>{{ service_cat.title }}</div>
+              
+              
+          </a>
+      
+          
+        </li>
+      {% endfor %}
+    </ul>
+    </li>
+    <li><a href='{% url "home" %}#coach-list'>НАША КОМАНДА</a></li>
+    <li><a href="{% url 'rules' %}">ПРАВИЛА</a></li>
+    <li><a href="">ГАЛЕРЕЯ</a></li>
+    <li><a href="">ТЕЛЕФОН</a></li>
+    <li><a href="">КОНТАКТЫ</a></li>
+   
+  </ul>
+</nav>
 </header>
