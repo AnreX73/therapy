@@ -1,0 +1,13 @@
+{% extends 'therapy/base.html' %}
+
+{% block content %}
+<div class="spacer" id="coach-list" ></div>
+<hr >
+ <h1 class="service-title">Наша команда</h1>
+
+<div class="coach-list-wrapper">
+    {% for coach in coaches %}
+    {% include  'therapy/components/coach_card.html' %}
+    {% endfor%}
+</div>
+{% endblock content %}

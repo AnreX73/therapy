@@ -2,11 +2,24 @@
 
 
 {% block content %}
-
-<div>
-    <img src="{{main_image.image.url}}" alt="{{main_img.title}}">
+<div class="categories-list-wrapper">
     
+
+
+
+    {% for photo in cats_images %}
+   {{ photo.gallery_link.content|safe }}
+
+
+    <div class="main-image-container">
+        <img src="{{photo.image.url}}" alt="{{photo.note}}">
+
+    </div>
+
+    {% endfor %}
+
 </div>
-<div class="check-block"></div>
-{% include 'therapy/components/coach_list.html' %}
+
+
+
 {% endblock content %}

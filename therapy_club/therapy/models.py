@@ -152,6 +152,9 @@ class PostGallery(models.Model):
 class Gallery(models.Model):
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True, verbose_name='Фото')
     video = models.FileField(upload_to='images/%Y/%m/%d', blank=True, null=True, verbose_name='видео (если есть)')
+    gallery_link = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE,default=6, verbose_name='к какой '
+                                                                                                       'категории '
+                                                                                                       'фото')
     note = models.CharField(blank=True, max_length=100, verbose_name='примечание')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
 

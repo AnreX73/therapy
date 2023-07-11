@@ -51,7 +51,7 @@
       {% endfor %}
     </ul>
     </li>
-    <li><a href='{% url "home" %}#coach-list'>НАША КОМАНДА</a></li>
+    <li><a href='{% url "coaches" %}'>НАША КОМАНДА</a></li>
     <li><a href="{% url 'rules' %}">ПРАВИЛА</a></li>
     <li><a href="">ГАЛЕРЕЯ</a></li>
     <li><a href="">ТЕЛЕФОН</a></li>
@@ -60,3 +60,7 @@
   </ul>
 </nav>
 </header>
+<div class="main-image-container">
+  <img src="{{main_image.image.url}}" alt="{{main_img.title}}">
+  
+</div>

@@ -99,10 +99,14 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'note', 'is_published')
-    list_display_links = ('id', 'note')
+    list_display = ('id', 'note','gethtmlPhoto', 'is_published')
+    list_display_links = ('id', 'note','gethtmlPhoto',)
     search_fields = ('note',)
     save_on_top = True
+
+    def gethtmlPhoto(self, picture):
+        if picture.image:
+            return mark_safe(f"<img src='{picture.image.url}' width=75>")
 
     def gethtmlPhoto(self, picture):
         if picture.image:
