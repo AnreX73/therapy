@@ -32,7 +32,7 @@ class Graphics(models.Model):
 class ServiceCategory(models.Model):
     title = models.CharField(max_length=255, db_index=True, verbose_name='Категория услуг')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
-    content = RichTextField(blank=True,default='' ,verbose_name='Краткое  описание')
+    content = RichTextField(blank=True, default='', verbose_name='Краткое  описание')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
 
     def __str__(self):
@@ -152,9 +152,10 @@ class PostGallery(models.Model):
 class Gallery(models.Model):
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True, verbose_name='Фото')
     video = models.FileField(upload_to='images/%Y/%m/%d', blank=True, null=True, verbose_name='видео (если есть)')
-    gallery_link = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE,default=6, verbose_name='к какой '
-                                                                                                       'категории '
-                                                                                                       'фото')
+    gallery_link = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE, default=6, verbose_name='к какой '
+                                                                                                        'категории '
+                                                                                                        'фото',
+                                     related_name='cat_photo')
     note = models.CharField(blank=True, max_length=100, verbose_name='примечание')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
 

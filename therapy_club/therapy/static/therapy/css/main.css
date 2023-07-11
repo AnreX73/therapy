@@ -106,7 +106,7 @@ hr{
   border-bottom: 1px dotted blueviolet;
   width: 80%;
   margin: 1rem auto;
-  margin-top: -20px;
+
 }
 .spacer{
   height: var(--header-height);
@@ -236,6 +236,17 @@ width:100%;
 
 .service-title{color: #4f0780;}
 
+/*категории*/
+.categories-list-wrapper{
+    padding:0px 20px;
+    gap:20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+}
+
+.categories-list-wrapper p{
+text-align:justify;
+}
 
   /*список тренеров*/
   .coach-list-wrapper{

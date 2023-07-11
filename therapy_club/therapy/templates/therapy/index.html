@@ -2,24 +2,21 @@
 
 
 {% block content %}
+<hr>
 <div class="categories-list-wrapper">
-    
-
-
-
-    {% for photo in cats_images %}
-   {{ photo.gallery_link.content|safe }}
-
-
-    <div class="main-image-container">
-        <img src="{{photo.image.url}}" alt="{{photo.note}}">
-
+    {% for cat in  service_cats %}
+    <div class="cat-content-wrapper">
+    <h1 class="service-title">{{ cat.title }}</h1>
+       <p> {{ cat.content|safe }} </p>
+    </div>
+    <div class="cat-images-wrapper">
+        {% for photo in  cat.cat_photo.all %}
+            <div class="main-image-container">
+                <img src="{{photo.image.url}}" alt="{{photo.note}}">
+            </div>
+        {% endfor %}
     </div>
 
     {% endfor %}
-
 </div>
-
-
-
 {% endblock content %}
