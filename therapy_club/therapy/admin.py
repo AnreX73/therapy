@@ -117,9 +117,10 @@ class GalleryAdmin(admin.ModelAdmin):
 
 @admin.register(Contacts)
 class ContactsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'annotations1', 'annotations2', 'gethtmlPhoto',)
-    list_display_links = ('id', 'annotations1')
+    list_display = ('title', 'annotations1', 'annotations2', 'gethtmlPhoto',)
+    list_display_links = ('title', 'annotations1')
     search_fields = ('annotations1',)
+    prepopulated_fields = {'slug': ('title',)}
     save_on_top = True
 
     def gethtmlPhoto(self, picture):

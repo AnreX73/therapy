@@ -1,19 +1,23 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from therapy.models import Services, Graphics, Coaches, Post, ServiceCategory, Gallery
+from therapy.models import Services, Graphics, Coaches, Post, ServiceCategory, Gallery, Contacts
 
 
 def index(request):
     services = Services.objects.exclude(title='х-запасной порт')
-    service_cats = ServiceCategory.objects.exclude(title='Запасной порт')
+    service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('-pk')
     cats_images = Gallery.objects.exclude(gallery_link_id=6).select_related('gallery_link')
+    contacts = Contacts.objects.exclude(title='Карта')
+    contacts_map = Contacts.objects.get(title='Карта')
 
     context = {
         'title': 'Главная страница',
         'services': services,
         'service_cats': service_cats,
-        'cats_images': cats_images
+        'cats_images': cats_images,
+        'contacts': contacts,
+        'contacts_map':contacts_map
 
     }
 

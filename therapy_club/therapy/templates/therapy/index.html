@@ -2,11 +2,12 @@
 
 
 {% block content %}
+<div class="spacer" id="cat-list"></div>
 <hr>
-<div class="categories-list-wrapper">
+<div class="categories-list-wrapper" >
     {% for cat in  service_cats %}
     <div class="cat-content-wrapper">
-    <h1 class="service-title">{{ cat.title }}</h1>
+    <h2 class="service-title">{{ cat.title }}</h1>
        <p> {{ cat.content|safe }} </p>
     </div>
     <div class="cat-images-wrapper">
@@ -19,4 +20,6 @@
 
     {% endfor %}
 </div>
+{% include  'therapy/components/contacts.html' %}
+
 {% endblock content %}

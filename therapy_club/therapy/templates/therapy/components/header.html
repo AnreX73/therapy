@@ -1,42 +1,13 @@
 
 
 <header>
-<!-- <div class="header-wrapper">
-<div class="header-wrapper-first-group ">
-  <a href="" class="service-wrapper">
-    УСЛУГИ
-  </a>
-  <a href="" class="service-wrapper">
-    НАША КОМАНДА
-  </a>
-  <a href="" class="service-wrapper">
-    ПРАВИЛА
-  </a>
-  <a href="" class="service-wrapper">
-    ГАЛЕРЕЯ
-  </a>
-</div>
-<div>
-  <a href="" class="logo-wrapper">
-    <img class="gallery-image" src="{{logo.image.url}}" alt="{{logo.title}}">
-  </a>
-</div>
 
-  <div class="header-wrapper-last-group ">
-   <a href="" class="service-wrapper ">
-    ТЕЛЕФОН
-  </a>
-  <a href="" class="service-wrapper "> 
-    КОНТАКТЫ
-  </a>
-</div>
-</div> -->
 <a href="/" class="logo">
    <img class="gallery-image" src="{{logo.image.url}}" alt="{{logo.title}}">
 </a>
 <nav>
   <ul>
-    <li><a href="">УСЛУГИ &#9660; </a>
+    <li><a href="{% url 'home' %}#cat-list">УСЛУГИ &#9660; </a>
     <ul>
       {% for service_cat in service_category %}
         <li>
@@ -54,13 +25,21 @@
     <li><a href='{% url "coaches" %}'>НАША КОМАНДА</a></li>
     <li><a href="{% url 'rules' %}">ПРАВИЛА</a></li>
     <li><a href="">ГАЛЕРЕЯ</a></li>
-    <li><a href="">ТЕЛЕФОН</a></li>
-    <li><a href="">КОНТАКТЫ</a></li>
+    <li>
+      <a href="{{ contact_phone.annotations2|safe }}">
+        <div style="display: flex;">
+          <img style="height: 17px;opacity: 70%;" src="{{contact_phone.image.url}}" alt="{{contact_phone.title}}">
+          <span>{{ contact_phone.annotations1|safe }}</span></div>
+      </a>
+    </li>
+    <li><a href="{% url 'home'%}#contact-list">КОНТАКТЫ</a></li>
    
   </ul>
 </nav>
 </header>
+
 <div class="main-image-container">
+  <div class="spacer"></div>
   <img src="{{main_image.image.url}}" alt="{{main_img.title}}">
   
 </div>

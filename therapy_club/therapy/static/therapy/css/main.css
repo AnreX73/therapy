@@ -96,17 +96,23 @@ h6 {
 h1{
 font-size:2.5rem;
 }
+h2{
+font-size:2rem;
+}
 h3{
 font-size:1.5rem;
 }
-hr{
-  
-  
+hr{  
   display: block;
   border-bottom: 1px dotted blueviolet;
   width: 80%;
   margin: 1rem auto;
-
+}
+th{
+  background: #b1b0b0;
+}
+td{
+  background: #ede8ee;
 }
 .spacer{
   height: var(--header-height);
@@ -120,14 +126,14 @@ hr{
   --complex-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
   7px 7px 20px 0px rgba(0,0,0,.1),
   4px 4px 5px 0px rgba(0,0,0,.1);
-  --light-gradient: linear-gradient(to right, #E2E2E2, #C9D6FF);
+  --light-gradient:linear-gradient(94deg, #F3FBFF 19%, #F2FFF6 52%, #FAF5FF 100%);
   --hot-gradient: linear-gradient(to right, #CB3066, #16BFFD);
 }
 
 body {
 margin: 0;
 font-family: 'Oswald', sans-serif;
-color:#5c5c5c;
+color:#3f3f3f;
 display: flex;
 flex-direction: column;
 height:auto;
@@ -158,7 +164,7 @@ background:var(--light-gradient);
     z-index: 20;
     width: 100%;
     max-height: var(--header-height);
-    background: #C9D6FF;
+    background:var(--light-gradient);
     padding: 5px 50px;
     display: flex;
     justify-content: space-between;
@@ -223,10 +229,12 @@ header ul li ul li a{
   padding: 10px 15px;
 }
 header ul li ul li a:hover{
-  background: #f2c9ff;
+  background: #ede8ee;
   
 
 }
+
+/*картинка на  главную*/
 .main-image-container{
 width:100%;
 }
@@ -234,9 +242,14 @@ width:100%;
 width:100%;
 }
 
-.service-title{color: #4f0780;}
 
 /*категории*/
+.service-title{
+  color: #4f0780;
+  margin-bottom: 10px;
+}
+
+
 .categories-list-wrapper{
     padding:0px 20px;
     gap:20px;
@@ -247,6 +260,9 @@ width:100%;
 .categories-list-wrapper p{
 text-align:justify;
 }
+
+
+
 
   /*список тренеров*/
   .coach-list-wrapper{
@@ -320,6 +336,24 @@ padding: 15px;
    text-align: justify;
 
   }
+
+
+/*контакты*/
+.contacts-container{
+  font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.contacts-info-wrapper{
+  align-self: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items:center;
+  gap: 10px;
+}
+.contact-info{
+  justify-self: left;
+}
 
 footer{
   text-align: center;
