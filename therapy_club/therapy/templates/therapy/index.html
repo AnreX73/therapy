@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 <hr>
 <section class="categories-list-wrapper" >
     
@@ -14,16 +15,17 @@
                     
                     {% for serv in cat.serv_category.all %}
                     <div class="service-wrapper">
-                        <a style="color: black;" href="">{{ serv.content|safe }} </a>
-                        <a style="color: black;" href="">подробнее > </a>
+                        <a style="color: black;" href="{% url 'service' serv.slug  %}">{{ serv.content|safe }} </a>
+                        <a style="color: black;" href="{% url 'service'  serv.slug  %}#our-team">подробнее > </a>
                         
                     </div>
                     {% endfor %}
                 </div>
             <div class="cat-images-wrapper">
                 {% for photo in  cat.cat_photo.all %}
-                <div class="main-image-container">
+                <div class="cat-image-container">
                         <img src="{{photo.image.url}}" alt="{{photo.note}}">
+                        
                     </div>
                 {% endfor %}
             </div>

@@ -174,7 +174,7 @@ background:var(--light-gradient);
     justify-content: space-between;
     align-items: center;
     width: var(--content-size);
-    border-radius: 12px;
+    border-radius: 4px;
   }
 
   header .logo img{
@@ -260,10 +260,7 @@ width:100%;
     flex-direction: column;
 }
 .category-wrapper{
-  padding-top: 120px;
-	margin-top: -80px;
-	-webkit-background-clip: content-box;
-	background-clip: content-box;
+ scroll-margin-top: var(--header-height);
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap:1.5rem;
@@ -272,10 +269,19 @@ width:100%;
   text-align: justify;
 }
 
+.cat-image-container img{
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--complex-shadow);
+  border: 7px solid #fff;
+}
+
 .service-wrapper{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
   padding: 1rem;
+  justify-items: space-between;
   border-bottom: 1px dotted blueviolet;;
 }
 
@@ -285,11 +291,17 @@ width:100%;
 
 
   /*список тренеров*/
+  #our-team{
+    scroll-margin-top: var(--header-height);
+
+  }
   .coach-list-wrapper{
+    
     padding-top:15px;
     display:grid;
     grid-template-columns: repeat(3,1fr);
     gap: 10px;
+    
   }
 
   /*карточка тренера*/
