@@ -102,11 +102,15 @@ font-size:2rem;
 h3{
 font-size:1.5rem;
 }
+h4{
+  font-size: 1.3rem;
+}
 hr{  
   display: block;
   border-bottom: 1px dotted blueviolet;
   width: 80%;
   margin: 1rem auto;
+  margin-top: 2rem;
 }
 th{
   background: #b1b0b0;
@@ -243,7 +247,7 @@ width:100%;
 }
 
 
-/*категории*/
+/*категории на странице*/
 .service-title{
   color: #4f0780;
   margin-bottom: 10px;
@@ -252,14 +256,30 @@ width:100%;
 
 .categories-list-wrapper{
     padding:0px 20px;
-    gap:20px;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
+    display: flex;
+    flex-direction: column;
+}
+.category-wrapper{
+  padding-top: 120px;
+	margin-top: -80px;
+	-webkit-background-clip: content-box;
+	background-clip: content-box;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:1.5rem;
+}
+.cat-content-wrapper p{
+  text-align: justify;
 }
 
-.categories-list-wrapper p{
-text-align:justify;
+.service-wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px dotted blueviolet;;
 }
+
+
 
 
 

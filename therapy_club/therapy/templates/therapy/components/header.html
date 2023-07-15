@@ -11,7 +11,7 @@
     <ul>
       {% for service_cat in service_category %}
         <li>
-          <a href="{% url 'home' %}#cat-list">
+          <a href="{% url 'home' %}#{{ service_cat.slug }}">
             <div>{{ service_cat.title }}</div>
               
               
