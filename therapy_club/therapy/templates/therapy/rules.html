@@ -5,7 +5,10 @@
 
 <hr>
 <div class="rules-wrapper">
-<h1>{{ rules.title }}</h1>
+    <div class="icon-title-box">
+        <div class="decor-div attention-cicle"><h1>!</h1></div>
+        <h1>{{ rules.title }}</h1>
+    </div>
 <p>{{ rules.content|safe }}</p>
 </div>
 {% endblock content %}

@@ -14,19 +14,19 @@
                     <p> {{ cat.content|safe }} </p>
                     
                     {% for serv in cat.serv_category.all %}
+                    <div class="decor-div "></div>
                     <div class="service-wrapper">
                         <a style="color: black;" href="{% url 'service' serv.slug  %}">{{ serv.content|safe }} </a>
-                        <a style="color: black;" href="{% url 'service'  serv.slug  %}#our-team">подробнее > </a>
-                        
+                        <a style="color: black;" href="{% url 'service'  serv.slug  %}#our-team">>>> </a>   
                     </div>
+                    
                     {% endfor %}
                 </div>
             <div class="cat-images-wrapper">
                 {% for photo in  cat.cat_photo.all %}
                 <div class="cat-image-container">
-                        <img src="{{photo.image.url}}" alt="{{photo.note}}">
-                        
-                    </div>
+                        <img src="{{photo.image.url}}" alt="{{photo.note}}">      
+                </div>
                 {% endfor %}
             </div>
             </div>

@@ -11,6 +11,7 @@ def index(request):
     contacts = Contacts.objects.exclude(title='Карта')
     contacts_map = Contacts.objects.get(title='Карта')
     
+    
 
     context = {
         'title': 'Главная страница',
@@ -18,7 +19,8 @@ def index(request):
         'service_cats': service_cats,
         'cats_images': cats_images,
         'contacts': contacts,
-        'contacts_map': contacts_map
+        'contacts_map': contacts_map,
+        
 
     }
 
@@ -36,8 +38,10 @@ def service(request, slug):
 
 def rules(request):
     rules = Post.objects.get(title='Правила посещения')
+   
     context = {
-        'rules': rules
+        'rules': rules,
+        
     }
 
     return render(request, 'therapy/rules.html', context=context)
