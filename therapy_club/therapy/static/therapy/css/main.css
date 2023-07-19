@@ -151,18 +151,19 @@ background:var(--light-gradient);
   /*общая оболочка*/
 .all-content-wrapper{
 min-height: calc(100vh - 80px);
-max-width:var(--content-size);
+width:var(--content-size);
 display: flex;
 flex-direction: column;
 margin: 0 auto;
 padding: 15px;
+text-align: center;
 
 }
 
   /*шапка сайта*/
  
   header{
-    margin: -5px;
+    margin: -20px;
     position: fixed;
     z-index: 20;
     width: 100%;
@@ -238,23 +239,56 @@ header ul li ul li a:hover{
 }
 
 /*картинка на  главную*/
-.main-image-container{
-width:100%;
-}
-.main-image-container img{
-width:100%;
+.comerc-image-wrapper{
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 350px;
 }
 
-
+.comerc-box{
+  position:absolute;
+  width: 100%;
+  height: auto; 
+  margin-left: 1rem;
+}
+.backround-link-box{
+  background: rgb(255, 255, 175);
+  box-shadow: var(--complex-shadow);
+  height: 800px;
+  width: 800px;
+  border-radius: 50%;
+  right: 60%;
+}
+.comerc-image-box{
+  left: 8%;
+}
+.comerc-link-box{
+  left: 3%;
+  bottom: 15%;
+  max-width: 300px;
+}
+.comerc-link-box p{
+margin-top: 15px;
+text-align: justify;
+}
+.comerc-title{
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f16406;
+  
+}
 /*категории на странице*/
 .service-title{
   color: #4f0780;
   margin-bottom: 10px;
 }
 .categories-list-wrapper{
+  margin-top: 1rem;
     padding:0px 20px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
 }
 .category-wrapper{
  scroll-margin-top: var(--header-height);
@@ -332,15 +366,14 @@ width:100%;
   /*список тренеров*/
   #our-team{
     scroll-margin-top: var(--header-height);
+    
 
   }
   .coach-list-wrapper{
-    
     padding-top:15px;
     display:grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-    
+    row-gap: 2rem;
   }
 
   /*карточка тренера*/
@@ -348,7 +381,7 @@ width:100%;
     margin-top: 10px;
     position: relative;  
     width: 300px;
-    height: 480px;
+    max-height: 480px;
     display: grid;
     grid-template-columns: 1fr;
     border-radius: 2rem;
@@ -374,10 +407,10 @@ width:100%;
   }
   .coach-card-circle{
     position: absolute;
-    top: 2%;
+    top: -5%;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 190px;
+    height: 190px;
     transform: translateY(-50%);
     right: -100px;
     padding:0;

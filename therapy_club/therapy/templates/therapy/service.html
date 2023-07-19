@@ -2,6 +2,7 @@
 
 
 {% block content %}
-
-<h2 class="service-title" id="our-team">{{ service.content|safe }}</h2>
+<div class="spacer"></div>
+<h3 style="opacity: 0.5;">{{ service.cat }}</h3>
+<h2 class="service-title">{{ service.content|safe }}</h2>
 {% endblock content %}

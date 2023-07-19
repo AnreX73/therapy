@@ -10,6 +10,7 @@ def index(request):
     cats_images = Gallery.objects.exclude(gallery_link_id=6).select_related('gallery_link')
     contacts = Contacts.objects.exclude(title='Карта')
     contacts_map = Contacts.objects.get(title='Карта')
+    main_image = Graphics.objects.get(title='картинка на главную')
     
     
 
@@ -20,6 +21,7 @@ def index(request):
         'cats_images': cats_images,
         'contacts': contacts,
         'contacts_map': contacts_map,
+        'main_image':main_image
         
 
     }

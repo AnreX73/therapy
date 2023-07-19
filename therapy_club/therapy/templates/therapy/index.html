@@ -2,7 +2,7 @@
 
 
 {% block content %}
-
+{% include 'therapy/components/comerc_block.html'%}
 
 <hr>
 <section class="categories-list-wrapper" >
@@ -17,7 +17,7 @@
                     <div class="decor-div "></div>
                     <div class="service-wrapper">
                         <a style="color: black;" href="{% url 'service' serv.slug  %}">{{ serv.content|safe }} </a>
-                        <a style="color: black;" href="{% url 'service'  serv.slug  %}#our-team">>>> </a>   
+                        <a style="color: black;" href="{% url 'service'  serv.slug  %}">>>> </a>   
                     </div>
                     
                     {% endfor %}
