@@ -187,3 +187,21 @@ class Contacts(models.Model):
         verbose_name = 'контакты '
         verbose_name_plural = 'Контакты'
         ordering = ['id']
+
+
+class Commercial(models.Model):
+    title = models.CharField(max_length=100, db_index=True, verbose_name='Кричащий заголовок')
+    sub_title = models.CharField(max_length=255, blank=True, verbose_name='Подзаголовок, если нужен')
+    about = models.CharField(max_length=100, blank=True, verbose_name='Про что(не выводится на экран)')
+    slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
+    icon = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
+                             verbose_name='рекламная иконка, если нужна')
+    image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
+                              verbose_name='изображение к рекламной статье, если есть')
+    content = RichTextField(blank=True, verbose_name='текст рекламы')
+    is_published = models.BooleanField(default=False, verbose_name='Публикация')
+
+    class Meta:
+        verbose_name = 'Акции и реклама'
+        verbose_name_plural = 'Акции'
+        ordering = ['id']

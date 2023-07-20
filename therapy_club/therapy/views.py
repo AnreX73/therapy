@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
-from therapy.models import Services, Graphics, Coaches, Post, ServiceCategory, Gallery, Contacts
+from therapy.models import Services, Graphics, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial
 
 
 def index(request):
@@ -11,6 +11,8 @@ def index(request):
     contacts = Contacts.objects.exclude(title='Карта')
     contacts_map = Contacts.objects.get(title='Карта')
     main_image = Graphics.objects.get(title='картинка на главную')
+    leaf = Graphics.objects.get(title='лист')
+    commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
     
     
 
@@ -21,7 +23,9 @@ def index(request):
         'cats_images': cats_images,
         'contacts': contacts,
         'contacts_map': contacts_map,
-        'main_image':main_image
+        'main_image':main_image,
+        'commerc':commerc,
+        'leaf':leaf 
         
 
     }

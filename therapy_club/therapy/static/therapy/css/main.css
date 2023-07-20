@@ -267,15 +267,33 @@ header ul li ul li a:hover{
   left: 3%;
   bottom: 15%;
   max-width: 300px;
+  
 }
-.comerc-link-box p{
-margin-top: 15px;
-text-align: justify;
+
+
+.comerc-link{
+  text-align: left;
+  position: relative;
+}
+.comerc-link-box button{
+  margin-top: 15px;
+  color: rgb(255, 255, 175);
+  font-size: 1.3rem;
+  padding: 15px;
+  line-height: 1.2;
+  position: absolute;
+  left: 70%;
+  }
+.comerc-link img{
+  max-width: 40px;
+  position: absolute;
+  right: 30%;
+  top: 22%;
 }
 .comerc-title{
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
-  color: #f16406;
+  color: red;
   
 }
 /*категории на странице*/
@@ -500,4 +518,78 @@ footer{
 		transform: translateX(0);
     
 	}
+}
+.custom-btn {
+  opacity:0;
+  visibility: hidden;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  border-radius: 50%;
+  padding: 15px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  background: transparent;
+  cursor: pointer;
+ 
+  position: absolute;
+  left: 10px;
+  bottom: -20px;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+.custom-btn:hover {
+  border-radius: 4px;
+}
+.btn-5 {
+  width: 120px;
+  height: 120px;
+  line-height: 1.2rem;
+  padding: 0;
+  border: none;
+  background: var(--wild-text);
+  background: linear-gradient(0deg, var(--wild-text) 0%, var(--wild-text) 100%);
+}
+.btn-5:hover {
+  color: var(--wild-text);
+  background: rgb(255, 255, 175);
+  box-shadow:none;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: var(--wild-text);
+  box-shadow:
+   -1px -1px 5px 0px rgb(255, 255, 175),
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+.active{
+  visibility:visible;
+  opacity: 100;
+  transition: 500ms ease-in-out all;
+
 }

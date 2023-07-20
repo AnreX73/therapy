@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.safestring import mark_safe
 
 from therapy.models import User, ServiceCategory, Services, Graphics, Coaches, Post, ServicesGallery, PostGallery, \
-    Gallery, Contacts
+    Gallery, Contacts, Commercial
 
 
 # @admin.register(User)
@@ -48,7 +48,7 @@ class ServicesGalleryAdmin(admin.TabularInline):
 
 class ServicesAdmin(admin.ModelAdmin):
     inlines = [ServicesGalleryAdmin]
-    list_display = ('id', 'title', 'cat', 'price', 'is_published')
+    list_display = ('id', 'title', 'cat','gethtmlPhoto', 'price', 'is_published')
     list_display_links = ('id', 'cat', 'title')
     search_fields = ('title', 'cat',)
     prepopulated_fields = {'slug': ('title',)}
@@ -99,8 +99,8 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'note','gethtmlPhoto', 'is_published')
-    list_display_links = ('id', 'note','gethtmlPhoto',)
+    list_display = ('id', 'note', 'gethtmlPhoto', 'is_published')
+    list_display_links = ('id', 'note', 'gethtmlPhoto',)
     search_fields = ('note',)
     save_on_top = True
 
@@ -108,9 +108,20 @@ class GalleryAdmin(admin.ModelAdmin):
         if picture.image:
             return mark_safe(f"<img src='{picture.image.url}' width=75>")
 
+    gethtmlPhoto.short_description = 'миниатюра'
+
+
+@admin.register(Commercial)
+class CommercialAdmin(admin.ModelAdmin):
+    list_display = ('title', 'about', 'gethtmlPhoto', 'is_published')
+    list_display_links = ('title', 'gethtmlPhoto')
+    search_fields = ('title',)
+    prepopulated_fields = {'slug': ('about',)}
+    save_on_top = True
+
     def gethtmlPhoto(self, picture):
-        if picture.image:
-            return mark_safe(f"<img src='{picture.image.url}' width=75>")
+        if picture.icon:
+            return mark_safe(f"<img src='{picture.icon.url}' width=75>")
 
     gethtmlPhoto.short_description = 'миниатюра'
 
