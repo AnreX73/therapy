@@ -238,7 +238,7 @@ header ul li ul li a:hover{
 
 }
 
-/*картинка на  главную*/
+/*картинка на  главную и реклама*/
 .comerc-image-wrapper{
   display: flex;
   overflow: hidden;
@@ -265,15 +265,18 @@ header ul li ul li a:hover{
 }
 .comerc-link-box{
   left: 3%;
-  bottom: 15%;
+  bottom: 25%;
   max-width: 300px;
   
 }
-
-
 .comerc-link{
   text-align: left;
   position: relative;
+  background: rgba(121, 1, 101, 0.03);
+  border-radius: 50%;
+  padding: 4rem;
+ 
+
 }
 .comerc-link-box button{
   margin-top: 15px;
@@ -282,13 +285,14 @@ header ul li ul li a:hover{
   padding: 15px;
   line-height: 1.2;
   position: absolute;
-  left: 70%;
+  left: 90%;
+  bottom: 15%;
   }
 .comerc-link img{
   max-width: 40px;
   position: absolute;
-  right: 30%;
-  top: 22%;
+  right: 10%;
+  top: 25%;
 }
 .comerc-title{
   font-size: 4rem;
@@ -296,6 +300,8 @@ header ul li ul li a:hover{
   color: red;
   
 }
+
+
 /*категории на странице*/
 .service-title{
   color: #4f0780;
@@ -357,7 +363,16 @@ header ul li ul li a:hover{
   justify-items: space-between;
   position: relative;
   transition: 300ms ease-in-out all;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(121, 1, 101, 0.05) 100%);
+  border-radius: 4px;
 }
+.service-wrapper:hover{
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(121, 1, 101, 0.07) 100%);
+  padding: 1.6rem;
+  border-radius: 8px;
+
+}
+
 .service-wrapper:hover{
  font-size: 1.1rem;
  transition: 300ms ease-in-out all;

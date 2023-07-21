@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
     redButton.classList.add('slide-from-right');
     redButton.classList.add('active');
 
-  }, 500);
+  }, 700);
   
   sunAdd.forEach(function(item){
     setTimeout(() => {
         item.classList.add('active');
         item.classList.add('slide-from-right');
 
-      }, 1000);
+      }, 700);
     
   })
   
