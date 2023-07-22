@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Pacifico&display=swap');
+/* RGBA коды */
+
+.primary-0 { color: rgba(154,  74, 188, 1) }		/* Основной Цвет */
+.primary-1 { color: rgba(104,  73, 117, 1) }
+.primary-2 { color: rgba( 65,   9,  89, 1) }
+.primary-3 { color: rgba(211, 148, 238, 1) }
+.primary-4 { color: rgba(224, 191, 238, 1) }
+
+.secondary-a-0 { color: rgba( 70, 152, 180, 1) }	/* Вторичный Цвет A */
+.secondary-a-1 { color: rgba( 69, 102, 112, 1) }
+.secondary-a-2 { color: rgba(  8,  66,  85, 1) }
+.secondary-a-3 { color: rgba(146, 214, 236, 1) }
+.secondary-a-4 { color: rgba(189, 225, 236, 1) }
+
+.secondary-b-0 { color: rgba(255, 176,  93, 1) }	/* Вторичный Цвет B */
+.secondary-b-1 { color: rgba(159, 129,  96, 1) }
+.secondary-b-2 { color: rgba(121,  67,  11, 1) }
+.secondary-b-3 { color: rgba(255, 206, 154, 1) }
+.secondary-b-4 { color: rgba(255, 229, 202, 1) }
+
+.complement-0 { color: rgba(247, 253,  93, 1) }		/* Дополнительный Цвет */
+.complement-1 { color: rgba(156, 158,  96, 1) }
+.complement-2 { color: rgba(116, 120,  11, 1) }
+.complement-3 { color: rgba(251, 255, 154, 1) }
+.complement-4 { color: rgba(253, 255, 202, 1) }
 /*обнуление*/
 * {
   padding: 0;
@@ -166,7 +191,7 @@ text-align: center;
     margin: -20px;
     position: fixed;
     z-index: 20;
-    width: 100%;
+    max-width: 100%;
     max-height: var(--header-height);
     background:var(--light-gradient);
     padding: 5px 50px;
@@ -243,7 +268,9 @@ header ul li ul li a:hover{
   display: flex;
   overflow: hidden;
   position: relative;
+  width: 100%;
   height: 350px;
+  
 }
 
 .comerc-box{
