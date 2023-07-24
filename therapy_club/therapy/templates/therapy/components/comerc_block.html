@@ -3,15 +3,14 @@
     <div class="comerc-box comerc-image-box"><img src="{{ main_image.image.url }}" alt="{{ main_image.title }}"></div>
     <div class="comerc-box backround-link-box"></div>
     {% for com in commerc %}
-    <div href="" class="comerc-box comerc-link-box">
+    <div  class="comerc-box comerc-link-box">
     <div class="comerc-link" >
         <h1 class="comerc-title">{{ com.title }}</h1>
-        
-        <a href=""><button class="custom-btn btn-5 "><span style="font-weight:bold;">{{com.sub_title}}</span></button> </a>
-        
+        <p class="comerc-title">{{ com.sub_title }}</p>
+        <a href=""><button class="custom-btn btn-5"><span style="font-weight:bold;">{{com.about}}</span></button> </a>
     {% endfor %}    
     </div>
     
-</div>    
+    </div>    
 
 </section>

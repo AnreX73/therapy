@@ -13,6 +13,7 @@ def index(request):
     main_image = Graphics.objects.get(title='картинка на главную')
     leaf = Graphics.objects.get(title='лист')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
+    logo = Graphics.objects.get(title='лого вместо фото')
     
     
 
@@ -25,7 +26,8 @@ def index(request):
         'contacts_map': contacts_map,
         'main_image':main_image,
         'commerc':commerc,
-        'leaf':leaf 
+        'leaf':leaf ,
+        'logo':logo
         
 
     }

@@ -1,0 +1,12 @@
+<div class="category-container" id="{{ cat.slug }}">
+    <h1 class="category-title">{{ cat.title }}</h1>
+    <div class="services-wrapper">
+
+        {% for serv in services %}
+        {% if cat.id == serv.cat_id %}
+        {% include  'therapy/components/category_card.html' %}
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<hr>

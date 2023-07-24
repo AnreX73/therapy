@@ -5,9 +5,16 @@
 {% include 'therapy/components/comerc_block.html'%}
 
 <hr>
-<section class="categories-list-wrapper" >
+<section class="categories-list">
+    {% for cat in  service_cats %}
+        {% include  'therapy/components/category.html' %}
+    {% endfor%}
+
+</section>
+<!-- <section class="categories-list-wrapper" > -->
+
     
-        {% for cat in  service_cats %}
+        <!-- {% for cat in  service_cats %}
             <div class="category-wrapper" id="{{ cat.slug }}">
                 <div class="cat-content-wrapper" >
                     <h2 class="cat-title service-title">{{ cat.title }}</h2>
@@ -32,9 +39,9 @@
             </div>
             </div>
         <hr>
-        {% endfor %}
+        {% endfor %} -->
     
-</section>
+<!-- </section> -->
 {% include  'therapy/components/contacts.html' %}
 
 {% endblock content %}

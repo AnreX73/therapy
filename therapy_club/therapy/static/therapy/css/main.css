@@ -156,7 +156,7 @@ td{
   7px 7px 20px 0px rgba(0,0,0,.1),
   4px 4px 5px 0px rgba(0,0,0,.1);
   --light-gradient:linear-gradient(90deg, #EAF5F7 1%, #F9F6CF 51%, #F1FBFF 99%, #F1FBFF 100%);
-  --hot-gradient: linear-gradient(to right, #CB3066, #16BFFD);
+  --hover-gradient:linear-gradient(45deg, #EAF5F7 1%, #F9F6CF 51%, #F1FBFF 99%, #F1FBFF 100%);
 }
 
 body {
@@ -280,7 +280,7 @@ header ul li ul li a:hover{
   margin-left: 1rem;
 }
 .backround-link-box{
-  background: rgb(255, 255, 175);
+   background:var(--light-gradient);
   box-shadow: var(--complex-shadow);
   height: 800px;
   width: 800px;
@@ -292,27 +292,30 @@ header ul li ul li a:hover{
 }
 .comerc-link-box{
   left: 3%;
-  bottom: 25%;
+  bottom: 10%;
   max-width: 300px;
   
 }
 .comerc-link{
   text-align: left;
   position: relative;
-  background: rgba(121, 1, 101, 0.03);
   border-radius: 50%;
   padding: 4rem;
- 
-
+}
+.comerc-link p{
+margin-top: 1rem;
+font-size: 1.5rem;
+color: #4f0780;
+max-width: 200px;
 }
 .comerc-link-box button{
   margin-top: 15px;
-  color: rgb(255, 255, 175);
-  font-size: 1.3rem;
+  color: #fff;
+  font-size: 1rem;
   padding: 15px;
   line-height: 1.2;
   position: absolute;
-  left: 90%;
+  left: 85%;
   bottom: 15%;
   }
 .comerc-link img{
@@ -322,7 +325,7 @@ header ul li ul li a:hover{
   top: 25%;
 }
 .comerc-title{
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: red;
   
@@ -476,7 +479,7 @@ header ul li ul li a:hover{
     padding:0;
     overflow: hidden;
     box-shadow: var(--complex-shadow);
-    border: 7px solid rgb(255, 255, 175);
+    border: 7px solid #fff;
  
   }
   .coach-card-circle img{
@@ -561,6 +564,89 @@ footer{
     
 	}
 }
+
+
+
+
+.active{
+  visibility:visible;
+  opacity: 100;
+  transition: 500ms ease-in-out all;
+
+}
+
+
+/*категории на главную*/
+.categories-list{
+  display: flex;
+  flex-direction: column;
+}
+.category-container{
+  scroll-margin-top: var(--header-height);
+  margin-top: 1rem;
+}
+.services-wrapper{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+@media (max-width: 1279px) {
+  .services-wrapper{
+    width: 100vw;
+}
+}
+/*карточка услуги на главную*/
+.service-card-wrapper{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 7px solid #fff;
+  border-radius: 1rem;
+  width: 280px;
+  padding: 1rem;
+  background:var(--light-gradient);
+  transition: 300ms ease-in-out all;
+}
+.service-card-wrapper:hover{
+  background:var(--hover-gradient);
+  box-shadow: var(--complex-shadow);
+  width: 290px;
+  transition: 300ms ease-in-out all;
+}
+.service-icon-title{
+  border-bottom: 1px dotted #4f0780;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+.service-icon-image{
+overflow: hidden;
+width: 120px;
+height: 120px;
+border-radius: 50%;
+border: 1px dotted #4f0780;
+}
+.service-icon-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-discription{
+  justify-self: flex-end;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+.price-link{
+  position: absolute;
+
+}
+
 .custom-btn {
   opacity:0;
   visibility: hidden;
@@ -574,7 +660,6 @@ footer{
   font-size: 0.8rem;
   background: transparent;
   cursor: pointer;
- 
   position: absolute;
   left: 10px;
   bottom: -20px;
@@ -599,7 +684,7 @@ footer{
 }
 .btn-5:hover {
   color: var(--wild-text);
-  background: rgb(255, 255, 175);
+  background: #fff;
   box-shadow:none;
 }
 .btn-5:before,
@@ -627,11 +712,4 @@ footer{
 .btn-5:hover:after{
   width:100%;
   transition:800ms ease all;
-}
-
-.active{
-  visibility:visible;
-  opacity: 100;
-  transition: 500ms ease-in-out all;
-
 }
