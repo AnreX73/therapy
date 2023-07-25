@@ -56,7 +56,7 @@ class Services(models.Model):
     price = models.PositiveIntegerField(null=True, default=0, verbose_name='Цена')
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
                               verbose_name='основное изображение для услуги')
-    content = RichTextField(blank=True, verbose_name='Краткое  описание')
+    content = RichTextField(blank=True, verbose_name='Описание')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     time_update = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')

@@ -2,29 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Pacifico&display=swap');
 /* RGBA коды */
 
-.primary-0 { color: rgba(154,  74, 188, 1) }		/* Основной Цвет */
-.primary-1 { color: rgba(104,  73, 117, 1) }
-.primary-2 { color: rgba( 65,   9,  89, 1) }
-.primary-3 { color: rgba(211, 148, 238, 1) }
-.primary-4 { color: rgba(224, 191, 238, 1) }
 
-.secondary-a-0 { color: rgba( 70, 152, 180, 1) }	/* Вторичный Цвет A */
-.secondary-a-1 { color: rgba( 69, 102, 112, 1) }
-.secondary-a-2 { color: rgba(  8,  66,  85, 1) }
-.secondary-a-3 { color: rgba(146, 214, 236, 1) }
-.secondary-a-4 { color: rgba(189, 225, 236, 1) }
-
-.secondary-b-0 { color: rgba(255, 176,  93, 1) }	/* Вторичный Цвет B */
-.secondary-b-1 { color: rgba(159, 129,  96, 1) }
-.secondary-b-2 { color: rgba(121,  67,  11, 1) }
-.secondary-b-3 { color: rgba(255, 206, 154, 1) }
-.secondary-b-4 { color: rgba(255, 229, 202, 1) }
-
-.complement-0 { color: rgba(247, 253,  93, 1) }		/* Дополнительный Цвет */
-.complement-1 { color: rgba(156, 158,  96, 1) }
-.complement-2 { color: rgba(116, 120,  11, 1) }
-.complement-3 { color: rgba(251, 255, 154, 1) }
-.complement-4 { color: rgba(253, 255, 202, 1) }
 /*обнуление*/
 * {
   padding: 0;
@@ -156,7 +134,7 @@ td{
   7px 7px 20px 0px rgba(0,0,0,.1),
   4px 4px 5px 0px rgba(0,0,0,.1);
   --light-gradient:linear-gradient(90deg, #EAF5F7 1%, #F9F6CF 51%, #F1FBFF 99%, #F1FBFF 100%);
-  --hover-gradient:linear-gradient(45deg, #EAF5F7 1%, #F9F6CF 51%, #F1FBFF 99%, #F1FBFF 100%);
+  --hover-gradient:linear-gradient(180deg, #EAF5F7 1%, #F9F6CF 51%, #F1FBFF 99%, #F1FBFF 100%);
 }
 
 body {
@@ -193,7 +171,7 @@ text-align: center;
     z-index: 20;
     max-width: 100%;
     max-height: var(--header-height);
-    background:var(--light-gradient);
+    background:var(--hover-gradient);
     padding: 5px 50px;
     display: flex;
     justify-content: space-between;
@@ -491,10 +469,12 @@ max-width: 200px;
   .mini-logo{
   max-width:70px;
   }
+
+   /*ПРАВИЛА*/
 .rules-wrapper{
 display: flex;
 flex-direction: column;
-box-shadow: var(--complex-shadow);
+border: 7px solid#fff;
 padding: 15px 25px;
 max-width: 80%;
 margin: 1rem auto;
@@ -510,10 +490,14 @@ border-radius: 8px;
     align-items: center;
     justify-content: center;
     margin-right: 15px;
-    box-shadow: var(--complex-shadow);
+    border: 7px solid#fff;
     position:relative;
     transition: 500ms ease-in-out all;
 
+  }
+
+  #rules{
+  scroll-margin-top: var(--header-height);
   }
   .rules-wrapper > p{
     margin-top: 15px;
@@ -546,32 +530,6 @@ footer{
   color:#000000;
   background: var(--light-gradient);
  box-shadow: var(--complex-shadow);
-
-}
-.slide-from-right {
-	animation: SlideFromRight 600ms ease 0s 1 normal forwards;
-  
-}
-
-@keyframes SlideFromRight {
-	0% {
-		transform: translateX(-300px);
-    
-	}
-
-	100% {
-		transform: translateX(0);
-    
-	}
-}
-
-
-
-
-.active{
-  visibility:visible;
-  opacity: 100;
-  transition: 500ms ease-in-out all;
 
 }
 
@@ -607,6 +565,7 @@ footer{
   border: 7px solid #fff;
   border-radius: 1rem;
   width: 280px;
+  min-height: 300px;
   padding: 1rem;
   background:var(--light-gradient);
   transition: 300ms ease-in-out all;
@@ -614,13 +573,12 @@ footer{
 .service-card-wrapper:hover{
   background:var(--hover-gradient);
   box-shadow: var(--complex-shadow);
-  width: 290px;
   transition: 300ms ease-in-out all;
 }
 .service-icon-title{
   border-bottom: 1px dotted #4f0780;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
   justify-content: space-between;
   align-items: center;
   padding-bottom: 1rem;
@@ -638,13 +596,16 @@ border: 1px dotted #4f0780;
   object-fit: cover;
 }
 .service-discription{
-  justify-self: flex-end;
   padding: 1rem;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  color: #3f3f3f;
+  text-align: justify;
 }
-.price-link{
+.service-link{
   position: absolute;
-
+  bottom: 5%;
+  right: 5%;
+  color: #4f0780;
 }
 
 .custom-btn {
@@ -684,7 +645,7 @@ border: 1px dotted #4f0780;
 }
 .btn-5:hover {
   color: var(--wild-text);
-  background: #fff;
+  background:var(--light-gradient);
   box-shadow:none;
 }
 .btn-5:before,
@@ -712,4 +673,28 @@ border: 1px dotted #4f0780;
 .btn-5:hover:after{
   width:100%;
   transition:800ms ease all;
+}
+
+.active{
+  visibility:visible;
+  opacity: 100;
+  transition: 500ms ease-in-out all;
+
+}
+
+.slide-from-right {
+	animation: SlideFromRight 600ms ease 0s 1 normal forwards;
+  
+}
+
+@keyframes SlideFromRight {
+	0% {
+		transform: translateX(-300px);
+    
+	}
+
+	100% {
+		transform: translateX(0);
+    
+	}
 }

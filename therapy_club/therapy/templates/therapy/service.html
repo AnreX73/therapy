@@ -1,8 +1,6 @@
 {% extends 'therapy/base.html' %}
-
-
 {% block content %}
 <div class="spacer"></div>
-<h3 style="opacity: 0.5;">{{ service.cat }}</h3>
-<h2 class="service-title">{{ service.content|safe }}</h2>
+<h4 style="opacity: 0.5;">{{ service.cat }}</h4>
+<h3 class="service-page-title">{{ service.title }}</h3>
 {% endblock content %}
