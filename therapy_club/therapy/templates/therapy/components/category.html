@@ -3,7 +3,7 @@
     <div class="services-wrapper">
 
         {% for serv in services %}
-        {% if cat.id == serv.cat_id %}
+        {% if cat.id == serv.cat_id and serv.is_published %}
         {% include  'therapy/components/category_card.html' %}
         {% endif %}
         {% endfor %}

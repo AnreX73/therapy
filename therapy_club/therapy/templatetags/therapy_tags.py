@@ -9,7 +9,7 @@ register = template.Library()
 def header():
     logo = Graphics.objects.get(title='логотип')
     no_photo = Graphics.objects.get(title='нет фото')
-    service_category = ServiceCategory.objects.exclude(title='Запасной порт').order_by('-pk')
+    service_category = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
     contact_phone = Contacts.objects.get(title='Телефон')
    
 

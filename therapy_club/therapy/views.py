@@ -5,8 +5,9 @@ from therapy.models import Services, Graphics, Coaches, Post, ServiceCategory, G
 
 
 def index(request):
+    main_service = ServiceCategory.objects.get(title='Занятие с тренером')
     services = Services.objects.exclude(title='х-запасной порт')
-    service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('-pk')
+    service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')[1:]
     cats_images = Gallery.objects.exclude(gallery_link_id=6).select_related('gallery_link')
     contacts = Contacts.objects.exclude(title='Карта')
     contacts_map = Contacts.objects.get(title='Карта')
@@ -18,6 +19,7 @@ def index(request):
     
 
     context = {
+        'main_service':main_service,
         'title': 'Главная страница',
         'services': services,
         'service_cats': service_cats,

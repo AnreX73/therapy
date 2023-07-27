@@ -5,43 +5,24 @@
 {% include 'therapy/components/comerc_block.html'%}
 
 <hr>
+<!-- <a href="{% url 'service' main_service.slug %}">
+<div class="main-service-wrapper">
+    <h1 class="category-title">{{ main_service.title }}</h1>   
+      
+
+</div>
+</a> -->
 <section class="categories-list">
     {% for cat in  service_cats %}
+    {% if cat.is_published %}
         {% include  'therapy/components/category.html' %}
+    {% endif %}   
     {% endfor%}
 
 </section>
-<!-- <section class="categories-list-wrapper" > -->
 
     
-        <!-- {% for cat in  service_cats %}
-            <div class="category-wrapper" id="{{ cat.slug }}">
-                <div class="cat-content-wrapper" >
-                    <h2 class="cat-title service-title">{{ cat.title }}</h2>
-                    <p> {{ cat.content|safe }} </p>
-                    
-                    {% for serv in cat.serv_category.all %}
-                    <div class="decor-div "></div>
-                    <div class="service-wrapper">
-                        <a style="color: black;" href="{% url 'service' serv.slug  %}">{{ serv.content|safe }} </a>
-                        <a style="color: black;" href="{% url 'service'  serv.slug  %}">>>> </a> 
-                        
-                    </div>
-                    
-                    {% endfor %}
-                </div>
-            <div class="cat-images-wrapper">
-                {% for photo in  cat.cat_photo.all %}
-                <div class="cat-image-container">
-                        <img src="{{photo.image.url}}" alt="{{photo.note}}">      
-                </div>
-                {% endfor %}
-            </div>
-            </div>
-        <hr>
-        {% endfor %} -->
-    
-<!-- </section> -->
+
 {% include  'therapy/components/contacts.html' %}
 
 {% endblock content %}

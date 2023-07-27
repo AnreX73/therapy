@@ -1,6 +1,21 @@
 {% extends 'therapy/base.html' %}
 {% block content %}
 <div class="spacer"></div>
-<h4 style="opacity: 0.5;">{{ service.cat }}</h4>
-<h3 class="service-page-title">{{ service.title }}</h3>
+<div class="service-container">
+   <div class="price-gallery-container">
+        <h3 class="service-title">{{ service.title }}</h3>
+        
+            <h4>Цены</h4>
+            <div class="service-price-container">
+            <h4>Стоимость одного занятия без абонемента</h4> <h4>{{ service.price }} руб.</h4>
+            <h4>Продолжительность</h4> <h4>{{ service.duration}}</h4>
+        </div>
+        <div class="service-gallery-container">здесь галерея</div>
+   </div>
+   <div class="content-container">
+    <h3 class="service-title">Описание</h3>
+    <p>{{ service.content|safe }}</p>   
+   </div>
+</div>
+<div class="category-services-links"></div>
 {% endblock content %}
