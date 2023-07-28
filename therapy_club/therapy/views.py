@@ -15,22 +15,19 @@ def index(request):
     leaf = Graphics.objects.get(title='лист')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
     logo = Graphics.objects.get(title='лого вместо фото')
-    
-    
 
     context = {
-        'main_service':main_service,
+        'main_service': main_service,
         'title': 'Главная страница',
         'services': services,
         'service_cats': service_cats,
         'cats_images': cats_images,
         'contacts': contacts,
         'contacts_map': contacts_map,
-        'main_image':main_image,
-        'commerc':commerc,
-        'leaf':leaf ,
-        'logo':logo
-        
+        'main_image': main_image,
+        'commerc': commerc,
+        'leaf': leaf,
+        'logo': logo
 
     }
 
@@ -48,10 +45,10 @@ def service(request, slug):
 
 def rules(request):
     rules = Post.objects.get(title='Правила посещения')
-   
+
     context = {
         'rules': rules,
-        
+
     }
 
     return render(request, 'therapy/rules.html', context=context)

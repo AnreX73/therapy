@@ -101,6 +101,7 @@ class PostAdmin(admin.ModelAdmin):
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ('id', 'note', 'gethtmlPhoto', 'is_published')
     list_display_links = ('id', 'note', 'gethtmlPhoto',)
+    list_editable = ('is_published',)
     search_fields = ('note',)
     save_on_top = True
 
