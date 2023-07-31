@@ -380,8 +380,16 @@ max-width: 200px;
 
 
 /*категории на главную*/
+.main-service-wrapper{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
 .categories-list{
   display: flex;
+  flex-direction: column;
+}
+.categories-list-all{
+  display: none;
   flex-direction: column;
 }
 .category-container{

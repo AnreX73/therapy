@@ -8,26 +8,24 @@ def index(request):
     main_service = ServiceCategory.objects.get(title='Занятие с тренером')
     services = Services.objects.exclude(title='х-запасной порт')
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')[1:]
-    cats_images = Gallery.objects.exclude(gallery_link_id=6).select_related('gallery_link')
     contacts = Contacts.objects.exclude(title='Карта')
     contacts_map = Contacts.objects.get(title='Карта')
     main_image = Graphics.objects.get(title='картинка на главную')
-    leaf = Graphics.objects.get(title='лист')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
     logo = Graphics.objects.get(title='лого вместо фото')
+    service_cats_all = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
 
     context = {
         'main_service': main_service,
         'title': 'Главная страница',
         'services': services,
         'service_cats': service_cats,
-        'cats_images': cats_images,
         'contacts': contacts,
         'contacts_map': contacts_map,
         'main_image': main_image,
         'commerc': commerc,
-        'leaf': leaf,
-        'logo': logo
+        'logo': logo,
+        'service_cats_all':service_cats_all
 
     }
 

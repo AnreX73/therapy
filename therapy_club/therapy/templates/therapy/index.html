@@ -5,20 +5,28 @@
 {% include 'therapy/components/comerc_block.html'%}
 
 <hr>
-<!-- <a href="{% url 'service' main_service.slug %}"> -->
+<h1 class="category-title">{{ main_service.title }}</h1>  
 <div class="main-service-wrapper">
-    <h1 class="category-title">{{ main_service.title }}</h1>   
-   {% for media in main_service.cat_photo.all %} 
+     
+    {% for media in main_service.cat_photo.all %} 
    {% if media.image and media.is_published %} 
    <img style="height: 300px;" src="{{ media.image.url }} " alt="{{ media.note }} "> 
-   {% elif media.is_published %}
-    <video height="300" controls  type="video/mp4" src="{{ media.video.url }}" ></video>
+   <!-- {% elif media.is_published %}
+    <video height="300" controls  type="video/mp4" src="{{ media.video.url }}" ></video> -->
     {% endif%}
    {% endfor %} 
-
 </div>
-<!-- </a>  -->
+
 <section class="categories-list">
+    {% for cat in  service_cats %}
+    {% if cat.is_published %}
+        {% include  'therapy/components/category.html' %}
+    {% endif %}   
+    {% endfor%}
+
+</section>
+
+<section class="categories-list-all">
     {% for cat in  service_cats %}
     {% if cat.is_published %}
         {% include  'therapy/components/category.html' %}
