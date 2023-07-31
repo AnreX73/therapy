@@ -141,32 +141,34 @@ flex-direction: column;
 height:auto;
 justify-content: center;
 background:var(--light-gradient);
+overflow-x: hidden;
 }
 
   /*общая оболочка*/
 .all-content-wrapper{
 min-height: calc(100vh - 80px);
-width:var(--content-size);
+max-width:var(--content-size);
 display: flex;
 flex-direction: column;
 margin: 0 auto;
-padding: 15px;
+padding-top: 15px;
 text-align: center;
+
 }
 
   /*шапка сайта*/
   header{
-    margin: -20px;
+    margin: -15px;
     position: fixed;
     z-index: 20;
-    max-width: 100%;
-    max-height: var(--header-height);
+    width: 100%;
+    min-height: var(--header-height);
     background:var(--hover-gradient);
     padding: 5px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: var(--content-size);
+    
     border-radius: 4px;
   }
 
@@ -245,17 +247,24 @@ header ul li ul li a:hover{
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 350px;
+  max-height: 350px;
+  
   
 }
 
 .comerc-box{
-  position:absolute;
+  
   width: 100%;
   height: auto; 
   margin-left: 1rem;
 }
+.comerc-image-box{
+  width: 100%;
+  height: 100%;
+}
+
 .backround-link-box{
+  position:absolute;
    background:var(--light-gradient);
   box-shadow: var(--complex-shadow);
   height: 800px;
@@ -267,6 +276,7 @@ header ul li ul li a:hover{
   left: 8%;
 }
 .comerc-link-box{
+  position:absolute;
   left: 3%;
   bottom: 10%;
   max-width: 300px;
@@ -380,10 +390,41 @@ max-width: 200px;
 
 
 /*категории на главную*/
-.main-service-wrapper{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+.main-service-title{
+  scroll-margin-top: var(--header-height);
 }
+.main-service-wrapper{
+  
+  margin-top: 1rem;
+  display: flex;
+  justify-content:space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2rem;
+  position: relative;
+  align-items: center;
+}
+@media (max-width: 1279px) {
+  .main-service-wrapper{
+    gap: 1rem;
+    justify-content:center;
+  }  
+  .main-service-img-box{
+    display: none;
+  }
+}
+
+.main-service-box{
+max-width: 100%;
+}
+.main-service-img{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  object-fit:cover;
+}
+
 .categories-list{
   display: flex;
   flex-direction: column;
@@ -404,6 +445,16 @@ max-width: 200px;
   margin-top: 1rem;
   gap: 1rem;
   padding: 1.5rem;
+}
+@media (max-width: 991px) {
+  .main-service-wrapper, .main-service-title, .categories-list{
+    display: none;
+  }
+  .categories-list-all{
+    display: flex;
+    flex-direction: column;
+  }
+
 }
 
 /*костыль для флекса*/

@@ -25,7 +25,7 @@ def index(request):
         'main_image': main_image,
         'commerc': commerc,
         'logo': logo,
-        'service_cats_all':service_cats_all
+        'service_cats_all': service_cats_all
 
     }
 

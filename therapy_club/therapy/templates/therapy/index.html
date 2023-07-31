@@ -5,17 +5,27 @@
 {% include 'therapy/components/comerc_block.html'%}
 
 <hr>
-<h1 class="category-title">{{ main_service.title }}</h1>  
-<div class="main-service-wrapper">
-     
+
+<h1 class="category-title main-service-title"  id="{{main_service.slug}}">{{ main_service.title }}</h1>  
+<div class="main-service-wrapper" >   
     {% for media in main_service.cat_photo.all %} 
    {% if media.image and media.is_published %} 
-   <img style="height: 300px;" src="{{ media.image.url }} " alt="{{ media.note }} "> 
-   <!-- {% elif media.is_published %}
-    <video height="300" controls  type="video/mp4" src="{{ media.video.url }}" ></video> -->
+   <div class="main-service-box main-service-img-box">
+   <img class="main-service-img" src="{{ media.image.url }} " alt="{{ media.note }} "> 
+   </div>
     {% endif%}
    {% endfor %} 
+   <div class="main-service-box main-service-content">{{main_service.content|safe}}</div>
+   <div class="main-service-box main-service-link">
+   {% for serv in  main_service.serv_category.all %}
+   {% if serv.is_published %}
+   {% include  'therapy/components/category_card.html' %}
+   {% endif %}
+   {% endfor %}
+    </div>
+   <hr>
 </div>
+
 
 <section class="categories-list">
     {% for cat in  service_cats %}
@@ -27,7 +37,7 @@
 </section>
 
 <section class="categories-list-all">
-    {% for cat in  service_cats %}
+    {% for cat in  service_cats_all %}
     {% if cat.is_published %}
         {% include  'therapy/components/category.html' %}
     {% endif %}   
