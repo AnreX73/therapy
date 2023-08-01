@@ -195,7 +195,7 @@ class Commercial(models.Model):
     about = models.CharField(max_length=100, blank=True, verbose_name='Слоган для ссылки')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
     icon = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
-                             verbose_name='рекламная иконка, если нужна')
+                             verbose_name='рекламная иконка - не использовать!!!')
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
                               verbose_name='изображение к рекламной статье, если есть')
     content = RichTextField(blank=True, verbose_name='текст рекламы')
