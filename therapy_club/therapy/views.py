@@ -13,7 +13,21 @@ def index(request):
     main_image = Graphics.objects.get(title='картинка на главную')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
     logo = Graphics.objects.get(title='лого вместо фото')
-    service_cats_all = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
+    service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
+    for s_k in service_cats:
+        if s_k.serv_category.count() < 3:
+            obj_style = 'min_elem'
+            
+        else:
+            obj_style = 'max_elem'
+        print(obj_style)
+        
+    
+
+
+        
+            
+    
 
     context = {
         'main_service': main_service,
@@ -25,8 +39,8 @@ def index(request):
         'main_image': main_image,
         'commerc': commerc,
         'logo': logo,
-        'service_cats_all': service_cats_all
-
+        'service_cats': service_cats,
+        'obj_style':obj_style
     }
 
     return render(request, 'therapy/index.html', context=context)
