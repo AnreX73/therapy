@@ -1,33 +1,28 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
-from therapy.models import Services, Graphics, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial
+from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial
 
 
 def index(request):
     main_service = ServiceCategory.objects.get(title='Занятие с тренером')
     services = Services.objects.exclude(title='х-запасной порт')
-    service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')[1:]
-    contacts = Contacts.objects.exclude(title='Карта')
+    # service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')[1:]
+    contacts = Contacts.objects.exclude(title='Карта').exclude(title='мини-карта').exclude(title='средняя карта')
     contacts_map = Contacts.objects.get(title='Карта')
-    main_image = Graphics.objects.get(title='картинка на главную')
+    contacts_mini_map = Contacts.objects.get(title='мини-карта')
+    contacts_midi_map = Contacts.objects.get(title='средняя карта')
+
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
-    logo = Graphics.objects.get(title='лого вместо фото')
+
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
     for s_k in service_cats:
         if s_k.serv_category.count() < 3:
             obj_style = 'min_elem'
-            
+
         else:
             obj_style = 'max_elem'
         print(obj_style)
-        
-    
-
-
-        
-            
-    
 
     context = {
         'main_service': main_service,
@@ -39,8 +34,9 @@ def index(request):
         'main_image': main_image,
         'commerc': commerc,
         'logo': logo,
-        'service_cats': service_cats,
-        'obj_style':obj_style
+
+        'contacts_mini_map': contacts_mini_map,
+        'contacts_midi_map': contacts_midi_map
     }
 
     return render(request, 'therapy/index.html', context=context)

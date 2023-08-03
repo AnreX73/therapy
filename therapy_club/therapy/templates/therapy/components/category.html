@@ -1,7 +1,9 @@
 <div class="category-container" id="{{ cat.slug }}">
-    <h1 class="category-title">{{ cat.title }}</h1>
-    <div class="services-wrapper">
-        
+    <div class="category-title">
+        <h2>{{ cat.title }}</h2>
+    </div>
+    
+    <div class="services-wrapper">       
         {% for serv in services %}
         {% if cat.id == serv.cat_id and serv.is_published %}
         {% include  'therapy/components/category_card.html' %}

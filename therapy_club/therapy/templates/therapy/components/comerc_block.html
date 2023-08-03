@@ -24,3 +24,18 @@
 
 </section>
 
+<section class="comerc-mini-wrapper">
+{% if commerc %}
+{% for com in commerc %}
+  <div class="comerc-mini-text">
+    <div class="comercmini-title"><h1 class="comerc-title">{{ com.title }}</h1></div>
+    <div class="comerc-mini-title"><p>{{ com.sub_title }}</p></div>
+  </div>
+  {% endfor %}
+  
+    <a href=""><button class="mini-btn" ><span style="font-weight:bold;">{{com.about}}ПОДРОБНЕЕ</span></button> </a>
+{% else %}
+<div ></div>
+{% endif %}
+  
+</section>

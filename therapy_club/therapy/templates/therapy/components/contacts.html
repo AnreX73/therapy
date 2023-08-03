@@ -1,5 +1,5 @@
 
-<h2 class="service-title" id="contact-list">Контакты</h1>
+<h2 class="contact-title" id="contact-list">Контакты</h1>
 <div class="contacts-container">
     <div class="contacts-info-wrapper">
         {% for contact in contacts %}
@@ -19,8 +19,16 @@
         </div>
         {% endfor %}
     </div>
-    <div class="contact-map-wrapper">
+    <div class="contact-map-wrapper origin-map">
         {{ contacts_map.annotations2|safe }}
+
+    </div>
+    <div class="contact-map-wrapper midi-map">
+        {{ contacts_midi_map.annotations2|safe }}
+
+    </div>
+    <div class="contact-map-wrapper mini-map">
+        {{ contacts_mini_map.annotations2|safe }}
 
     </div>
 

@@ -6,7 +6,7 @@
    <img class="gallery-image" src="{{logo.image.url}}" alt="{{logo.title}}">
 </a>
 <nav>
-  <ul>
+  <ul class="nav-menu">
     <li><a  href="{% url 'home' %}#cat-list">УСЛУГИ &#9660; </a>
     <ul >
       {% for service_cat in service_category %}
@@ -23,6 +23,7 @@
     </ul>
     </li>
     <li><a href='{% url "coaches"%}#our-team'>ТРЕНЕРЫ</a></li>
+    <li><a href='{% url "coaches"%}#our-team'>ЦЕНЫ И АБОНЕМЕНТЫ</a></li>
     <li><a href='{% url "rules"%}#rules'>ПРАВИЛА</a></li>
     <li>
       <a href="{{ contact_phone.annotations2|safe }}">
