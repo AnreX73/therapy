@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
-from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial, Graphics
+from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial, Graphics, Abonements
 
 
 def index(request):
@@ -72,3 +72,18 @@ class Coaches(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+def prices(request):
+    services = Services.objects.exclude(title='х-запасной порт')
+    cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
+    abonements = Abonements.objects.all().order_by('pk')
+
+    context = {
+        'services': services,
+        'cats': cats,
+        'abonements': abonements
+
+    }
+
+    return render(request, 'therapy/prices.html', context=context)

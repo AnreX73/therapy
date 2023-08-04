@@ -755,6 +755,39 @@ border: 1px dotted #4f0780;
       }
       
     }
+ 
+  /*прайс лист*/
+.price-card-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  .price-table{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    gap: 0.3rem;
+    justify-items: center;
+  }
+  .table-box {
+    padding: 1rem;
+    background: var(--hover-gradient);
+    width: 100%;
+    border: 1px dotted rgb(202, 200, 200);
+    border-radius: 4px;
+  }
+  .service-dur-box, .service-price-box, .service-price-title{
+    text-align: center;
+  }
+  .abo-box{
+    cursor: pointer;
+  }
+  @media (max-width:479px) {
+    .table-box {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
 
 footer{
   text-align: center;

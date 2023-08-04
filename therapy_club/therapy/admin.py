@@ -130,9 +130,9 @@ class CommercialAdmin(admin.ModelAdmin):
 
 @admin.register(Abonements)
 class AbonementsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'is_published')
+    list_display = ('title', 'sub_title', 'service_link', 'is_published')
     list_display_links = ('title',)
-    search_fields = ('title',)
+    search_fields = ('title', 'service_link')
     list_editable = ('is_published',)
     save_on_top = True
 
