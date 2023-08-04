@@ -1,18 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
-from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial
+from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial, Graphics
 
 
 def index(request):
     main_service = ServiceCategory.objects.get(title='Занятие с тренером')
     services = Services.objects.exclude(title='х-запасной порт')
-    # service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')[1:]
-    contacts = Contacts.objects.exclude(title='Карта').exclude(title='мини-карта').exclude(title='средняя карта')
+    logo = Graphics.objects.get(title='логотип')
+    contacts = Contacts.objects.exclude(title='Карта')
     contacts_map = Contacts.objects.get(title='Карта')
-    contacts_mini_map = Contacts.objects.get(title='мини-карта')
-    contacts_midi_map = Contacts.objects.get(title='средняя карта')
-
+    main_image = Graphics.objects.get(title='картинка на главную')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
 
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
@@ -35,8 +33,6 @@ def index(request):
         'commerc': commerc,
         'logo': logo,
 
-        'contacts_mini_map': contacts_mini_map,
-        'contacts_midi_map': contacts_midi_map
     }
 
     return render(request, 'therapy/index.html', context=context)

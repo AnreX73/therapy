@@ -56,6 +56,7 @@ class Services(models.Model):
     price = models.PositiveIntegerField(null=True, default=0, verbose_name='Цена')
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
                               verbose_name='основное изображение для услуги')
+    video = models.FileField(upload_to='images/%Y/%m/%d', blank=True, null=True, verbose_name='видео (если есть)')
     content = RichTextField(blank=True, verbose_name='Описание')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     time_update = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
@@ -205,3 +206,22 @@ class Commercial(models.Model):
         verbose_name = 'Акции и реклама'
         verbose_name_plural = 'Акции'
         ordering = ['id']
+
+
+class Abonements(models.Model):
+    title = models.CharField(max_length=100, db_index=True, verbose_name='Заголовок')
+    sub_title = models.CharField(max_length=255, db_index=True, verbose_name='подзаголовок')
+    service_link = models.ForeignKey(Services, on_delete=models.CASCADE,
+                                     verbose_name='к какой  услуге относится')
+    abonement_duration = models.CharField(max_length=255, blank=True, default=' - ', verbose_name='кол-во занятий или '
+                                                                                                  'сеансов')
+    abonement_price = models.PositiveIntegerField(null=True, default=0, verbose_name='Цена абонемента')
+    validity = models.CharField(max_length=100,  verbose_name='срок действия')
+    is_published = models.BooleanField(default=False, verbose_name='Публикация')
+
+    class Meta:
+        verbose_name = 'Абонемет'
+        verbose_name_plural = 'Абонементы'
+        ordering = ['id']
+
+

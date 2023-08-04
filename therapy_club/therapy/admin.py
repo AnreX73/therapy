@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.safestring import mark_safe
 
 from therapy.models import User, ServiceCategory, Services, Graphics, Coaches, Post, ServicesGallery, PostGallery, \
-    Gallery, Contacts, Commercial
+    Gallery, Contacts, Commercial, Abonements
 
 
 # @admin.register(User)
@@ -48,7 +48,7 @@ class ServicesGalleryAdmin(admin.TabularInline):
 
 class ServicesAdmin(admin.ModelAdmin):
     inlines = [ServicesGalleryAdmin]
-    list_display = ('id', 'title', 'cat','gethtmlPhoto', 'price', 'is_published')
+    list_display = ('id', 'title', 'cat', 'gethtmlPhoto', 'price', 'is_published')
     list_display_links = ('id', 'cat', 'title')
     search_fields = ('title', 'cat',)
     prepopulated_fields = {'slug': ('title',)}
@@ -126,6 +126,15 @@ class CommercialAdmin(admin.ModelAdmin):
             return mark_safe(f"<img src='{picture.icon.url}' width=75>")
 
     gethtmlPhoto.short_description = 'миниатюра'
+
+
+@admin.register(Abonements)
+class AbonementsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'is_published')
+    list_display_links = ('title',)
+    search_fields = ('title',)
+    list_editable = ('is_published',)
+    save_on_top = True
 
 
 @admin.register(Contacts)
