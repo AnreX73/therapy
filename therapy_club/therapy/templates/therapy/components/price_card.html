@@ -9,14 +9,14 @@
     {% if serv.cat_id == cat.id and serv.is_published %}
     <a style="color: #3f3f3f;" href="{% url 'service' serv.slug  %}" class="table-box  service-title-box">{{ serv.title}} </a>  
     <div class="table-box  service-dur-box">{{ serv.duration}}</div>
-    <div class="table-box service-price-box">{{ serv.price}}</div>
+    <div class="table-box service-price-box">{{ serv.nice_price}}</div>
    
     {% if abonements %}
     {% for abo in abonements %}
     {% if abo.service_link_id == serv.id and abo.is_published %}
-    <div style="color: #3f3f3f;" href="" class="table-box  service-title-box abo-box">{{ abo.title}}  {{abo.sub_title}} </div>  
-    <div class="table-box  service-dur-box">{{ abo.abonement_duration}}</div>
-    <div class="table-box service-price-box">{{ abo.abonement_price}}</div>
+    <div  class="table-box  service-title-box abo-box">{{ abo.title}}  {{abo.sub_title}} </div>  
+    <div class="table-box  service-dur-box abo-box">{{ abo.abonement_duration}}</div>
+    <div class="table-box service-price-box abo-box">{{ abo.nice_price}}</div>
     {% endif %}
     {% endfor %}
     {% endif %}

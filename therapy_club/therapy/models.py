@@ -219,6 +219,11 @@ class Abonements(models.Model):
     validity = models.CharField(max_length=100,  verbose_name='срок действия')
     is_published = models.BooleanField(default=False, verbose_name='Публикация')
 
+    def nice_price(self):
+        abonement_price = self.abonement_price
+        nice_price = '{0:,}'.format(abonement_price).replace(',', '`')
+        return nice_price
+
     class Meta:
         verbose_name = 'Абонемет'
         verbose_name_plural = 'Абонементы'

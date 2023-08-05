@@ -12,15 +12,8 @@ def index(request):
     contacts_map = Contacts.objects.get(title='Карта')
     main_image = Graphics.objects.get(title='картинка на главную')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
-
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
-    for s_k in service_cats:
-        if s_k.serv_category.count() < 3:
-            obj_style = 'min_elem'
-
-        else:
-            obj_style = 'max_elem'
-        print(obj_style)
+   
 
     context = {
         'main_service': main_service,
@@ -40,9 +33,18 @@ def index(request):
 
 def service(request, slug):
     service_item = get_object_or_404(Services, slug=slug)
+    service_abo = Abonements.objects.filter(service_link_id=service_item.id)
+    if service_item.cat_id == 2:
+        word='одного занятия'
+    elif service_item.cat_id == 4:
+        word='одной программы'
+    else:
+        word='одного сеанса'
     context = {
         'title': service_item.title,
-        'service': service_item
+        'service': service_item,
+        'service_abo':service_abo,
+        'word':word
     }
     return render(request, 'therapy/service.html', context=context)
 

@@ -108,6 +108,9 @@ font-size:1.5rem;
 h4{
   font-size: 1.3rem;
 }
+h5{
+  font-size: 1.1rem;
+}
 hr{  
   display: block;
   border-bottom: 1px dotted blueviolet;
@@ -618,7 +621,7 @@ border: 1px dotted #4f0780;
   
 }
 .price-gallery-container{
-  grid-column: span 5;
+  grid-column: span 6;
   border: 7px solid #fff;
   border-radius: 1rem;
   background:var(--light-gradient);
@@ -650,14 +653,47 @@ border: 1px dotted #4f0780;
   border: 7px solid #fff;
   background:var(--light-gradient);
   border-radius: 1rem;
-  grid-column: 6 / span 7;
+  grid-column: 7 / span 6;
   text-align: justify;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.3; 
 }
 .content-container p{
   margin-top: 1rem;
 
+}
+.service-abo-box{
+ align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+}
+.service-abo-sub-dur{
+  justify-self: right;
+}
+.service-abo-sub-title{
+  justify-self:center;
+}
+@media (max-width: 767px) {
+  .service-container{
+    grid-template-columns: 1fr;
+    gap: 0.5rem;  
+    margin-left: -7px;
+    margin-right: 7px;
+  }
+  .content-container{
+    grid-column: none;
+    border: 4px solid #fff;
+  }
+  .price-gallery-container{
+    grid-column: none;
+    border: 4px solid #fff;
+   
+    
+  }
+  .service-price-container{
+    border: 4px solid #fff;
+    padding: 0.5rem;
+  }
 }
 
 /*контакты*/
@@ -781,6 +817,8 @@ border: 1px dotted #4f0780;
   }
   .abo-box{
     cursor: pointer;
+    color:#4f0780;
+    font-weight:600;
   }
   @media (max-width:479px) {
     .table-box {
