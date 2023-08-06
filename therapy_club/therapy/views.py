@@ -4,19 +4,20 @@ from django.views.generic import ListView
 from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial, Graphics, Abonements
 
 
-def index(request):
-    main_service = ServiceCategory.objects.get(title='Занятие с тренером')
+def index(request):   
     services = Services.objects.exclude(title='х-запасной порт')
     logo = Graphics.objects.get(title='логотип')
-    contacts = Contacts.objects.exclude(title='Карта')
+    contacts = Contacts.objects.exclude(title='Карта').exclude(title='средняя карта').exclude(title='мини карта').exclude(title='микро карта')
     contacts_map = Contacts.objects.get(title='Карта')
+    contacts_midi_map = Contacts.objects.get(title='средняя карта')
+    contacts_mini_map = Contacts.objects.get(title='мини карта')
+    contacts_micro_map = Contacts.objects.get(title='микро карта')
     main_image = Graphics.objects.get(title='картинка на главную')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
    
 
     context = {
-        'main_service': main_service,
         'title': 'Главная страница',
         'services': services,
         'service_cats': service_cats,
@@ -25,6 +26,9 @@ def index(request):
         'main_image': main_image,
         'commerc': commerc,
         'logo': logo,
+        'contacts_midi_map':contacts_midi_map,
+        'contacts_mini_map':contacts_mini_map,
+        'contacts_micro_map':contacts_micro_map
 
     }
 

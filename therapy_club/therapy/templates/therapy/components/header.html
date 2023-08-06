@@ -7,17 +7,13 @@
 </a>
 <nav>
   <ul class="nav-menu">
-    <li><a  href="{% url 'home' %}#cat-list">УСЛУГИ &#9660; </a>
+    <li><span class="kostil">УСЛУГИ &#9660;</span>
     <ul >
       {% for service_cat in service_category %}
-        <li>
+        <li class="dropdown-menu">
           <a  href="{% url 'home' %}#{{ service_cat.slug }}">
             <div>{{ service_cat.title }}</div>
-              
-              
           </a>
-      
-          
         </li>
       {% endfor %}
     </ul>
@@ -29,11 +25,12 @@
       <a href="{{ contact_phone.annotations2|safe }}">
         <div style="display: flex;">
           <img style="height: 17px;opacity: 70%;" src="{{contact_phone.image.url}}" alt="{{contact_phone.title}}">
-          <span>{{ contact_phone.annotations1|safe }}</span></div>
+          <span>{{ contact_phone.annotations1|safe }}</span>
+        </div>
       </a>
     </li>
     <li><a href="{% url 'home'%}#contact-list">КОНТАКТЫ</a></li>
-   
+
   </ul>
 </nav>
 <div class="burger">

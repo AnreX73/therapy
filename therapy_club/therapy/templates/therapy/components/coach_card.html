@@ -3,7 +3,7 @@
     <div class="coach-card-box">
         
         <h3>{{ coach.title }}</h3>
-        <ul>
+        <ul class="coach-spec">
         {% for coach_service in coach.coach_services.all %}
             <li>{{ coach_service.title }}</li>
         {% endfor %}
