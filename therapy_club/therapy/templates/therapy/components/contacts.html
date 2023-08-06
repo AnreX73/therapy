@@ -5,9 +5,9 @@
         {% for contact in contacts %}
         <div class="contact-info-icon">
             {% if contact.annotations2 %}
-            <a style="color: black;" href="{{ contact.annotations2|safe }}"><img src="{{ contact.image.url }}" alt="{{ contact.title }}" style="height: 36px;"></a>
+            <a style="color: black;" href="{{ contact.annotations2|safe }}"><img src="{{ contact.image.url }}" alt="{{ contact.title }}"></a>
             {% else %}
-            <img src="{{ contact.image.url }}" alt="{{ contact.title }}" style="height: 36px;">
+            <img src="{{ contact.image.url }}" alt="{{ contact.title }}" >
             {% endif %}
         </div>
         <div class="contact-info">

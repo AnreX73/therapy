@@ -752,6 +752,9 @@ border: 1px dotted #4f0780;
   align-items:center;
   gap: 10px;
 }
+.contact-info-icon img{
+height:36px;
+}
 .contact-info{
   justify-self: left;
 }
@@ -784,7 +787,12 @@ border: 1px dotted #4f0780;
   }
 }
 @media (max-width: 479px) {
-  
+  .contact-info-icon img{
+    height: 28px;
+    }
+  .contacts-container{
+    font-size: 0.9rem;
+  }
   .mini-map{
     display: none;
   }
