@@ -9,7 +9,7 @@
     <div class="comerc-link" >
         <h1 class="comerc-title">{{ com.title }}</h1>
         <p class="comerc-title">{{ com.sub_title }}</p>
-        <a href=""><button class="custom-btn btn-5"><span style="font-weight:bold;">{{com.about}}</span></button> </a>
+        <a href=""><button class="custom-btn btn-5 js-open-modal"><span style="font-weight:bold;">{{com.about}}</span></button> </a>
     {% endfor %}    
     </div>
     
@@ -33,7 +33,7 @@
   </div>
   {% endfor %}
   
-    <a href=""><button class="mini-btn" ><span style="font-weight:bold;">{{com.about}}ПОДРОБНЕЕ</span></button> </a>
+    <a href=""><button class="mini-btn js-open-modal" ><span style="font-weight:bold;">{{com.about}}ПОДРОБНЕЕ</span></button> </a>
 {% else %}
 <div ></div>
 {% endif %}

@@ -38,6 +38,7 @@ def index(request):
 def service(request, slug):
     service_item = get_object_or_404(Services, slug=slug)
     service_abo = Abonements.objects.filter(service_link_id=service_item.id)
+    logo = Graphics.objects.get(title='логотип')
     if service_item.cat_id == 2:
         word='одного занятия'
     elif service_item.cat_id == 4:
@@ -48,7 +49,8 @@ def service(request, slug):
         'title': service_item.title,
         'service': service_item,
         'service_abo':service_abo,
-        'word':word
+        'word':word,
+        'logo':logo
     }
     return render(request, 'therapy/service.html', context=context)
 
