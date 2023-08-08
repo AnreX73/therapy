@@ -120,6 +120,7 @@ class CommercialAdmin(admin.ModelAdmin):
     list_editable = ('is_published',)
     prepopulated_fields = {'slug': ('about',)}
     save_on_top = True
+    ordering = ('-pk',)
 
     def gethtmlPhoto(self, picture):
         if picture.icon:

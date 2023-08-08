@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
-from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial, Graphics, Abonements
+from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Contacts, Commercial, Graphics, Abonements,ServicesGallery
 
 
 def index(request):   
@@ -14,9 +14,10 @@ def index(request):
     contacts_micro_map = Contacts.objects.get(title='микро карта')
     main_image = Graphics.objects.get(title='картинка на главную')
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
+    commerc_count = Commercial.objects.filter(is_published=True).count()
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
-   
-
+    
+    
     context = {
         'title': 'Главная страница',
         'services': services,
@@ -28,7 +29,8 @@ def index(request):
         'logo': logo,
         'contacts_midi_map':contacts_midi_map,
         'contacts_mini_map':contacts_mini_map,
-        'contacts_micro_map':contacts_micro_map
+        'contacts_micro_map':contacts_micro_map,
+        'commerc_count':commerc_count
 
     }
 
@@ -39,6 +41,8 @@ def service(request, slug):
     service_item = get_object_or_404(Services, slug=slug)
     service_abo = Abonements.objects.filter(service_link_id=service_item.id)
     logo = Graphics.objects.get(title='логотип')
+    gallery = ServicesGallery.objects.filter(gallery_service_link_id=service_item.id)
+    
     if service_item.cat_id == 2:
         word='одного занятия'
     elif service_item.cat_id == 4:
@@ -50,7 +54,8 @@ def service(request, slug):
         'service': service_item,
         'service_abo':service_abo,
         'word':word,
-        'logo':logo
+        'logo':logo,
+        'gallery':gallery
     }
     return render(request, 'therapy/service.html', context=context)
 

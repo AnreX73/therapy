@@ -658,6 +658,7 @@ border: 1px dotted #4f0780;
   display:grid;
   grid-template-columns: repeat(12,1fr);
   gap: 2rem;
+  margin-bottom: 1rem;
   
   
 }
@@ -692,6 +693,10 @@ border: 1px dotted #4f0780;
   gap: 1rem;
   justify-items: left;
   align-items: center;
+
+}
+.service-gallery-container video{
+  border-radius: 8px;
 
 }
 .content-container{
@@ -1099,13 +1104,61 @@ footer{
 
 }
 
+.gallery-wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+}
 
+.swiper {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+ 
+  padding: 1rem; 
+}
+.swiper-wrapper{
+  box-sizing: content-box;
+}
+
+.swiper-slide{
+  display: flex;
+}
+
+.swiper-slide img{
+  width: 100%;
+  height: 100%;
+  border: 4px solid#fff;
+  border-radius: 1rem; 
+}
+
+.swiper-button-prev{
+  background:var(--hover-gradient);
+  border-radius: 4px;
+  box-shadow: var(--complex-shadow);
+  left: 20px;
+} 
+.swiper-button-next{
+  background:var(--hover-gradient);
+  border-radius: 4px;
+  box-shadow: var(--complex-shadow);
+  right: 20px;
+}
+.swiper-button-next::after, .swiper-button-prev::after{
+  font-size: 30px;
+  color: rgb(100, 0, 158);
+
+}
 
 /*анимация*/
 .slide-from-right {
 	animation: SlideFromRight 600ms ease 0s 1 normal forwards;
   
 }
+
+
 
 @keyframes SlideFromRight {
 	0% {

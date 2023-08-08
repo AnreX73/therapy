@@ -193,7 +193,7 @@ class Contacts(models.Model):
 class Commercial(models.Model):
     title = models.CharField(max_length=100, db_index=True, verbose_name='Кричащий заголовок')
     sub_title = models.CharField(max_length=255, blank=True, verbose_name='Подзаголовок, если нужен')
-    about = models.CharField(max_length=100, blank=True, verbose_name='Слоган для ссылки')
+    about = models.CharField(max_length=100, blank=True, verbose_name='Слоган для ссылки на кнопке')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
     icon = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
                              verbose_name='рекламная иконка ')

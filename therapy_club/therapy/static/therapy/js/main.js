@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    effect:'flip',
+    speed:1000,
+    loop: true,
+    grabCursor:true,
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+  
+  });
+  
   redButton = document.querySelector('.btn-5');
   miniButton = document.querySelector('.mini-btn');
   setTimeout(() => {
@@ -46,7 +70,21 @@ document.addEventListener('DOMContentLoaded', function() {
   this.classList.remove('active-modal');
 });
 
- 
+ dropdown = document.querySelectorAll('.dropdown-menu');
+ nav = document.querySelector('.nav-menu');
+ burger = document.querySelector('.burger');
+
+ dropdown.forEach(function(item){
+  item.addEventListener('click', function(){
+    nav.classList.remove('open');
+    burger.classList.remove('burger-active');
+  });
+
+ });
+
+
+
+
 });
 
 

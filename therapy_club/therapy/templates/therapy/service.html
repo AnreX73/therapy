@@ -44,5 +44,31 @@
     <p>{{ service.content|safe }}</p>   
    </div>
 </div>
-<div class="category-services-links"></div>
+
+
+<div class="gallery-wrapper">
+{% if gallery %}
+<h3 style="text-align: center;color: rgb(65, 2, 124);">Галерея</h3>
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      {% for gal in gallery%}
+      <div class="swiper-slide"><img src="{{ gal.image.url}}" alt="gal.note"></div>
+      {% endfor %}
+      ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+    <!-- If we need scrollbar -->
+    
+  </div>
+</div> 
+{% endif %}
+
 {% endblock content %}
