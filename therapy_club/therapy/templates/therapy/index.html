@@ -2,9 +2,10 @@
 
 
 {% block content %}
+
 {% include 'therapy/components/comerc_block.html'%}
-<div id="overlay-modal"></div>
-<div class="modal-action-wrapper">
+<div class="overlay" id="overlay-modal" ></div>
+<div class="modal-action-wrapper modal-content">
     {% for action in commerc %}
     <div class="modal-box modal-action-icon-box">
         <div class="modal-action-sub-title">{{ action.sub_title}}</div>
@@ -27,7 +28,6 @@
     <svg class="js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
 </div>
 <hr>
-
 <h2 style="text-align: center;color: #16b1f8;">Наши услуги</h2>
 
 <section class="categories-list">

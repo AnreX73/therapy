@@ -16,12 +16,36 @@ document.addEventListener('DOMContentLoaded', function() {
    document.querySelector('.nav-menu').classList.toggle('open'); 
   })
 
-  modalButtons = document.querySelectorAll('.js-open-modal');
-  overlay      = document.querySelector('#overlay-modal');
-  closeButtons = document.querySelectorAll('.js-modal-close'); 
-  console.log(modalButtons )
-  console.log(overlay)
-  console.log(closeButtons)
+ modalButton = document.querySelector('#js-open-modal')
+ miniModalButton = document.querySelector('#mini-js-open-modal')
+ modalContent = document.querySelector('.modal-content')
+ overlay = document.querySelector('.overlay')
+ closeCrist = document.querySelector('.js-modal-close')
+
+ 
+ miniModalButton.addEventListener('click', (e) =>{ 
+  e.preventDefault();
+  overlay.classList.add('active-modal');
+  modalContent.classList.add('active-modal');
+ });
+  
+ modalButton.addEventListener('click', (e) =>{ 
+  e.preventDefault();
+  overlay.classList.add('active-modal');
+  modalContent.classList.add('active-modal');
+ });
+  
+ closeCrist.addEventListener('click', (e) =>{ 
+  e.preventDefault();
+  overlay.classList.remove('active-modal');
+  modalContent.classList.remove('active-modal');
+ });
+  
+ overlay.addEventListener('click', function() {
+  document.querySelector('.modal-content.active-modal').classList.remove('active-modal');
+  this.classList.remove('active-modal');
+});
+
  
 });
 
