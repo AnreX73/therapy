@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     pagination: {
       el: '.swiper-pagination',
     },
-    effect:'flip',
+    effect:'fade',
     speed:1000,
-    loop: true,
+    
     grabCursor:true,
     // Navigation arrows
     navigation: {
