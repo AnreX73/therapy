@@ -20,7 +20,7 @@ def index(request):
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
 
     context = {
-        'title': 'Главная страница',
+        'title': 'THERAPY CLUB',
         'services': services,
         'service_cats': service_cats,
         'contacts': contacts,
@@ -40,10 +40,11 @@ def index(request):
 
 def service(request, slug):
     service_item = get_object_or_404(Services, slug=slug)
+    print(service_item.video)
     service_abo = Abonements.objects.filter(service_link_id=service_item.id)
     logo = Graphics.objects.get(title='логотип')
     gallery = ServicesGallery.objects.filter(gallery_service_link_id=service_item.id)
-
+    service_links = Services.objects.filter(cat_id=service_item.cat_id).filter(is_published=True).exclude(id=service_item.id).values('title','slug')
     if service_item.cat_id == 2:
         word = 'одного занятия'
     elif service_item.cat_id == 4:
@@ -56,7 +57,8 @@ def service(request, slug):
         'service_abo': service_abo,
         'word': word,
         'logo': logo,
-        'gallery': gallery
+        'gallery': gallery,
+        'service_links':service_links
     }
     return render(request, 'therapy/service.html', context=context)
 

@@ -734,6 +734,22 @@ border: 1px dotted #4f0780;
 .service-abo-sub-title{
   justify-self:center;
 }
+.service-links-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.service-link-box{
+background: var(--hover-gradient);
+padding: 0.5rem;
+text-align: center;
+border: 1px dotted rgb(202, 200, 200);
+border-radius: 4px;
+}
+.service-link-box a{
+  color: #3f3f3f;
+}
 @media (max-width: 767px) {
   .service-container{
     grid-template-columns: 1fr;

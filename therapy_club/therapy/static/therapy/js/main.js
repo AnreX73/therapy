@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
   modalContent.classList.remove('active-modal');
  });
 
- closeCrist.addEventListener('touchstart', (e) =>{ 
+ closeCrist.addEventListener('touchend', (e) =>{ 
   e.preventDefault();
   overlay.classList.remove('active-modal');
   modalContent.classList.remove('active-modal');
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
   this.classList.remove('active-modal');
 });
 
- overlay.addEventListener('touchstart', function() {
+ overlay.addEventListener('touchend', function() {
   document.querySelector('.modal-content.active-modal').classList.remove('active-modal');
   this.classList.remove('active-modal');
 });
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     nav.classList.remove('open');
     burger.classList.remove('burger-active');
 
-  item.addEventListener('touchstart', function() {
+  item.addEventListener('touchend', function() {
     nav.classList.remove('open');
     burger.classList.remove('burger-active');
 
