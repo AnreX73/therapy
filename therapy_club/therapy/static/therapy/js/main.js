@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       el: '.swiper-pagination',
     },
     effect:'fade',
-    speed:1000,
+    speed:500,
     
     grabCursor:true,
     // Navigation arrows
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     miniButton.classList.add('active');
     redButton.classList.add('active');
 
-  }, 700);
+  }, 500);
   
   
   document.querySelector('.burger').addEventListener('click', function(){
@@ -58,18 +58,32 @@ document.addEventListener('DOMContentLoaded', function() {
   overlay.classList.add('active-modal');
   modalContent.classList.add('active-modal');
  });
-  
+
+  // закрытие модального окна при клике по крестику
  closeCrist.addEventListener('click', (e) =>{ 
   e.preventDefault();
   overlay.classList.remove('active-modal');
   modalContent.classList.remove('active-modal');
  });
-  
+
+ closeCrist.addEventListener('touchstart', (e) =>{ 
+  e.preventDefault();
+  overlay.classList.remove('active-modal');
+  modalContent.classList.remove('active-modal');
+ });
+
+ // закрытие модального окна при клике по подложке 
  overlay.addEventListener('click', function() {
   document.querySelector('.modal-content.active-modal').classList.remove('active-modal');
   this.classList.remove('active-modal');
 });
 
+ overlay.addEventListener('touchstart', function() {
+  document.querySelector('.modal-content.active-modal').classList.remove('active-modal');
+  this.classList.remove('active-modal');
+});
+
+// закрытие бургер-меню при переходе по якорю
  dropdown = document.querySelectorAll('.dropdown-menu');
  nav = document.querySelector('.nav-menu');
  burger = document.querySelector('.burger');
@@ -78,6 +92,13 @@ document.addEventListener('DOMContentLoaded', function() {
   item.addEventListener('click', function(){
     nav.classList.remove('open');
     burger.classList.remove('burger-active');
+
+  item.addEventListener('touchstart', function() {
+    nav.classList.remove('open');
+    burger.classList.remove('burger-active');
+
+    });
+
   });
 
  });
