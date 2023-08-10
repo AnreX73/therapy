@@ -32,6 +32,8 @@ class Graphics(models.Model):
 class ServiceCategory(models.Model):
     title = models.CharField(max_length=255, db_index=True, verbose_name='Категория услуг')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
+    image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True,
+                              verbose_name='основное изображение для категории')
     content = RichTextField(blank=True, default='', verbose_name='Краткое  описание')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
 

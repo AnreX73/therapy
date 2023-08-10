@@ -32,15 +32,22 @@
 <hr>
 <h2 style="text-align: center;color: #16b1f8;">Наши услуги</h2>
 
-<section class="categories-list">
+<!-- <section class="categories-list">
     {% for cat in  service_cats %}
     {% if cat.is_published %}
-        {% include  'therapy/components/category.html' %}
+        {% include  'therapy/components/alt_category_card.html' %}
     {% endif %}   
     {% endfor%}
-
+</section> -->
+<section class="alt-categories-list">
+    {% for cat in  service_cats %}
+    {% if cat.is_published %}
+        {% include  'therapy/components/alt_category_card.html' %}
+    {% endif %}   
+    {% endfor%}
+  
 </section>
-
+<hr>
     
 
 {% include  'therapy/components/contacts.html' %}

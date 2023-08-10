@@ -6,7 +6,7 @@ from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Co
 
 
 def index(request):
-    services = Services.objects.exclude(title='х-запасной порт')
+    # services = Services.objects.exclude(title='х-запасной порт')
     logo = Graphics.objects.get(title='логотип')
     contacts = Contacts.objects.exclude(title='Карта').exclude(title='средняя карта').exclude(
         title='мини карта').exclude(title='микро карта')
@@ -19,9 +19,10 @@ def index(request):
     commerc_count = Commercial.objects.filter(is_published=True).count()
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
 
+    print(service_cats)
     context = {
         'title': 'THERAPY CLUB',
-        'services': services,
+        # 'services': services,
         'service_cats': service_cats,
         'contacts': contacts,
         'contacts_map': contacts_map,
@@ -31,7 +32,8 @@ def index(request):
         'contacts_midi_map': contacts_midi_map,
         'contacts_mini_map': contacts_mini_map,
         'contacts_micro_map': contacts_micro_map,
-        'commerc_count': commerc_count
+        'commerc_count': commerc_count,
+
 
     }
 
