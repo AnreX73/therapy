@@ -1,6 +1,6 @@
 from django.urls import path
 
-from therapy.views import index, rules, Coaches, service, prices, actions_page
+from therapy.views import index, rules, Coaches, service, prices, actions_page, category_page
 
 urlpatterns = [
     path('', index, name='home'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('prices/', prices, name='prices'),
     path('actions/', actions_page, name='actions'),
     path('service/<slug:slug>', service, name='service'),
+    path('category/<slug:slug>', category_page, name='category_page'),
 ]

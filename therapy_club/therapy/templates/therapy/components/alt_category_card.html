@@ -10,7 +10,8 @@
         <div class="category-title-box"><h3>{{cat.title}}</h3></div>
     </div>
     <hr>
-    <div class="category-box alt-category-content">{{cat.content|safe|linebreaks|truncatewords:45}}</div>
-    <div class="category-box alt-category-link">к описанию и ценам >>></div>
+    <div class="category-box alt-category-content">{{cat.content|safe|linebreaks|truncatewords:46}}</div>
+    <a class="alt-category-link" href="{% url 'category_page' cat.slug %}">к описанию и ценам >>></a>
+    
    
 </div>

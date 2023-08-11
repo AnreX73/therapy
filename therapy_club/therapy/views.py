@@ -18,6 +18,7 @@ def index(request):
     commerc = Commercial.objects.filter(is_published=True).order_by('-pk')[:1]
     commerc_count = Commercial.objects.filter(is_published=True).count()
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
+    favicon = Graphics.objects.get(title='фавикон')
 
     print(service_cats)
     context = {
@@ -33,6 +34,7 @@ def index(request):
         'contacts_mini_map': contacts_mini_map,
         'contacts_micro_map': contacts_micro_map,
         'commerc_count': commerc_count,
+        'favicon':favicon
 
 
     }
@@ -41,6 +43,7 @@ def index(request):
 
 
 def service(request, slug):
+    favicon = Graphics.objects.get(title='фавикон')
     service_item = get_object_or_404(Services, slug=slug)
     print(service_item.video)
     service_abo = Abonements.objects.filter(service_link_id=service_item.id)
@@ -60,16 +63,20 @@ def service(request, slug):
         'word': word,
         'logo': logo,
         'gallery': gallery,
-        'service_links':service_links
+        'service_links':service_links,
+        'favicon':favicon
     }
     return render(request, 'therapy/service.html', context=context)
 
 
 def rules(request):
+    favicon = Graphics.objects.get(title='фавикон')
     rules = Post.objects.get(title='Правила посещения')
 
     context = {
+        'title': 'Правила посещения',
         'rules': rules,
+        'favicon':favicon
 
     }
 
@@ -77,13 +84,15 @@ def rules(request):
 
 
 class Coaches(ListView):
+    favicon = Graphics.objects.get(title='фавикон')
     logo = Graphics.objects.get(title='логотип')
     model = Coaches
     template_name = 'therapy/coach_list.html'
     context_object_name = 'coaches'
     extra_context = {
         'title': 'Наша команда',
-        'logo': logo
+        'logo': logo,
+        'favicon':favicon
 
     }
 
@@ -93,26 +102,53 @@ class Coaches(ListView):
 
 
 def actions_page(request):
+    favicon = Graphics.objects.get(title='фавикон')
     actions = Commercial.objects.filter(is_published=True).order_by('-pk')
     logo = Graphics.objects.get(title='логотип')
     context = {
+        'title': 'Акции',
          'logo': logo,
-         'actions': actions
+         'actions': actions,
+         'favicon':favicon
     }
 
     return render(request, 'therapy/actions.html', context=context)
 
 
 def prices(request):
+    favicon = Graphics.objects.get(title='фавикон')
     services = Services.objects.exclude(title='х-запасной порт')
     cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
     abonements = Abonements.objects.all().order_by('pk')
 
     context = {
+        'title': 'Цены',
         'services': services,
         'cats': cats,
-        'abonements': abonements
+        'abonements': abonements,
+        'favicon':favicon
 
     }
 
     return render(request, 'therapy/prices.html', context=context)
+
+def category_page(request, slug):
+    category = get_object_or_404(ServiceCategory, slug=slug)
+    title = category.title
+    unselected_categories = ServiceCategory.objects.exclude(id=category.id)
+    cat_services = Services.objects.filter(cat_id=category.id).filter(is_published=True)
+    logo = Graphics.objects.get(title='логотип')
+    favicon = Graphics.objects.get(title='фавикон')
+    
+   
+
+    context = {
+        'title':title,
+        'services':cat_services,
+        'category':category,
+        'unselected_categories':unselected_categories,
+        'logo':logo,
+        'favicon':favicon
+    }
+    return render(request, 'therapy/category_page.html', context=context)
+

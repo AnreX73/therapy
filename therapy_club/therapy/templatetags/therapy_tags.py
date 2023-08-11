@@ -11,12 +11,12 @@ def header():
     no_photo = Graphics.objects.get(title='нет фото')
     service_category = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
     contact_phone = Contacts.objects.get(title='Телефон')
+    
    
 
     return {
         "logo": logo,
         'no_photo': no_photo,
         'service_category':service_category,
-        'contact_phone':contact_phone
-        
+        'contact_phone':contact_phone,   
     }
