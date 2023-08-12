@@ -11,10 +11,12 @@
         
     </div>
     <div class="coach-card-box coach-card-circle slide-from-right">
-        
-            <img class="gallery-image" src="{{coach.image.url}}" alt="{{logo.title}}">
-        
-
+        {% if coach.image %}
+        <img class="gallery-image" src="{{coach.image.url}}" alt="{{logo.title}}">
+        {% else %}
+        <img style="width: 150px;height: auto;margin-top:20%;" src="{{logo.image.url}}" alt="{{ serv.title }}">
+        {% endif %}
+            
     </div>
     <div class="coach-card-box">
         <h3>{{ coach_photo.title }}</h3>

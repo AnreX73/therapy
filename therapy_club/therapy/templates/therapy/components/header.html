@@ -11,7 +11,7 @@
     <ul >
       {% for service_cat in service_category %}
         <li class="dropdown-menu">
-          <a  href="{% url 'home' %}#{{ service_cat.slug }}">
+          <a  href="{% url 'category_page' service_cat.slug %}">
             <div>{{ service_cat.title }}</div>
           </a>
         </li>

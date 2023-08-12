@@ -856,18 +856,14 @@ height:36px;
   margin: 1rem auto;
   border-radius: 8px;
     }
-    .icon-title-box{
-      display: flex;
-      align-items:center;
-    }
-  
+ 
     #rules{
     scroll-margin-top: var(--header-height);
     }
   
     .rules-wrapper > p{
       margin-top: 15px;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
      text-align: justify;
   
     }
@@ -883,8 +879,24 @@ height:36px;
         margin-top: 10px;
         font-size: 1rem;
       }
-      
+      .rules-wrapper{
+        border: 4px solid#fff;
+        padding: 10px 15px;
+        max-width: 95%;
+        margin: 0 auto;
+        border-radius: 4px;
+          }   
     }
+    @media (max-width: 479px) {
+      .rules-wrapper > p{
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+      .rules-wrapper{
+        padding: 0.5rem 1rem;
+          }   
+    }
+ 
  
   /*прайс лист*/
 .price-card-wrapper{
@@ -1239,7 +1251,9 @@ align-items:center;
   color: #4f0780;
 }
 .alt-category-content{
+  line-height: 1.3;
   text-align: justify;
+  height: 100%;
 }
 .alt-category-link{
   text-align: right;
@@ -1266,7 +1280,7 @@ align-items:center;
 
 .category-page-main-info{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 500px));
+  grid-template-columns: 5fr 4fr;
   gap: 1rem;
   justify-content: center;
 }
@@ -1276,13 +1290,13 @@ align-items:center;
   gap: 0.5rem;
   border: 7px solid #fff;
   border-radius: 1rem;
+ 
 }
 .category-page-service-prices{
   display: grid;
   grid-template-columns: 3fr 5fr;
   align-items: center;
-  padding: 1rem;
-  
+  padding: 1rem;  
 }
 .caterory-page-image-box{
   width: 150px;
@@ -1298,10 +1312,27 @@ align-items:center;
 }
 .service-container-title{
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  color: #4f0780;
 }
 .category-content-title{
   margin-bottom: 1rem;
+}
+.categories-servicies{
+  padding-bottom: 1rem;
+}
+.service-container-box{
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 4fr 2fr 1fr;
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.service-container-box-text{
+  justify-self: left;
+  line-height: 1.3;
 }
 .category-page-content{
   padding: 1rem;
@@ -1310,6 +1341,56 @@ align-items:center;
   border: 7px solid #fff;
   border-radius: 1rem;
 }
+/*конец страница категории*/
+
+@media (max-width: 1023px) {
+  .category-page-main-info{
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    max-width: 80%;
+  }
+
+}
+@media (max-width: 767px) {
+  .category-page-main-info{
+    grid-template-columns: 1fr;
+    margin: 0;
+    max-width: 100%;
+  }
+  .category-page-service-container{
+    border: 4px solid #fff;
+    border-radius: 0.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
+  .category-page-content{
+    border: 4px solid #fff;
+    border-radius: 0.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
+
+}
+@media (max-width: 479px) {
+  .service-container-box, .category-page-content{
+    font-size: 0.9rem;
+  }
+  .category-page-title, .category-content-title, .category-price-title{
+    line-height: 2rem;
+  }
+  .caterory-page-image-box{
+    width: 130px;
+    height: 130px;
+    border: 4px solid #fff;
+  }
+  .category-page-service-prices{
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    align-items: center;
+    padding: 0.5rem;  
+  }
+
+}
 
 
 /*анимация*/
@@ -1317,8 +1398,6 @@ align-items:center;
 	animation: SlideFromRight 600ms ease 0s 1 normal forwards;
   
 }
-
-
 
 @keyframes SlideFromRight {
 	0% {
