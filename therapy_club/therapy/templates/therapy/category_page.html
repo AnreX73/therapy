@@ -25,12 +25,22 @@
         <div class="service-container-box">
             <div class="service-container-box-text">{{ serv.content|safe}}</div>
             <div class="service-container-box-dur">{{ serv.duration}}</div>
-            <div class="service-container-box-price">{{ serv.price}}</div>
+            <div class="service-container-box-price price-mark">{{ serv.nice_price}}</div>
         </div>
+        {% for abo in serv.abonements_set.all %}
+        {% if abo.is_published %}
+        <div class="service-container-box">
+            <div style="font-weight: 600;color: #4f0780;" class="service-container-box-text">{{ abo.title }} {{ abo.sub_title }}</div>
+            <div style="font-weight: 600;color: #4f0780;" class="service-container-box-dur">{{ abo.abonement_duration }}</div>
+            <div style="font-weight: 600;color: #4f0780;" class="service-container-box-price price-mark">{{ abo.nice_price }}</div>
+        </div>
+        {% endif %}
+        {% endfor %}
         <hr class="price-line">
         {% endif %}
         {% endfor %}
     </div>
+    
     </div>
     
     <div class="category-page-content">

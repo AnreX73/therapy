@@ -45,7 +45,6 @@ def index(request):
 def service(request, slug):
     favicon = Graphics.objects.get(title='фавикон')
     service_item = get_object_or_404(Services, slug=slug)
-    print(service_item.video)
     service_abo = Abonements.objects.filter(service_link_id=service_item.id)
     logo = Graphics.objects.get(title='логотип')
     gallery = ServicesGallery.objects.filter(gallery_service_link_id=service_item.id)
@@ -139,6 +138,7 @@ def category_page(request, slug):
     cat_services = Services.objects.filter(cat_id=category.id).filter(is_published=True)
     logo = Graphics.objects.get(title='логотип')
     favicon = Graphics.objects.get(title='фавикон')
+    services_count = cat_services.count()
     
    
 
@@ -148,7 +148,8 @@ def category_page(request, slug):
         'category':category,
         'unselected_categories':unselected_categories,
         'logo':logo,
-        'favicon':favicon
+        'favicon':favicon,
+        'services_count':services_count
     }
     return render(request, 'therapy/category_page.html', context=context)
 

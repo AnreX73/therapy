@@ -50,6 +50,7 @@ class ServicesAdmin(admin.ModelAdmin):
     inlines = [ServicesGalleryAdmin]
     list_display = ('id', 'title', 'cat', 'gethtmlPhoto', 'price', 'is_published')
     list_display_links = ('id', 'cat', 'title')
+    list_editable = ('is_published',)
     search_fields = ('title', 'cat',)
     prepopulated_fields = {'slug': ('title',)}
     save_on_top = True
