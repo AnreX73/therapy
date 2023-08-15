@@ -125,11 +125,10 @@ hr{
 .spacer{
   height: var(--header-height);
 }
-.price-mark{
-  font-family: 'PT Sans', serif;
-}
+
 .price-mark:after {
   content: " \20BD";
+  font-family: 'PT Sans', serif;
 }
 
 :root{
@@ -1170,7 +1169,7 @@ align-items:center;
  
 }
 
-.swiper {
+/* .swiper {
   display: flex;
   max-width: 800px;
   width: 100%;
@@ -1210,7 +1209,7 @@ align-items:center;
   font-size: 30px;
   color: rgb(100, 0, 158);
 
-}
+} */
 
 
 .alt-categories-list{
@@ -1411,6 +1410,99 @@ border: 4px solid #fff;
     align-items: center;
     padding: 0.5rem;  
   }
+
+}
+.modal-gallery-wrapper{  
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80%;
+  height: auto;
+  background: var(--light-gradient);
+  border: 7px solid#fff;
+  border-radius: 1rem; 
+  box-shadow: var(--complex-shadow);
+  padding: 1rem;
+  transition: .3s all;
+}
+.modal-gallery-content{
+  z-index: -1;
+  opacity:0;
+  visibility:hidden;
+}
+.modal-gallery-content.active-modal-gallery{
+  opacity:1;
+  visibility:visible;
+  z-index: 90;
+}
+.js-gallery-modal-close{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  fill:#4f0780;
+  cursor: pointer;
+  z-index: 95;
+}
+.gallary-link-box{
+  display: flex;
+}
+.open-gallery-modal{
+  width: 60px;
+  height: 60px;
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+}
+.open-gallery-modal img{
+  width: 100%;
+  height: 100%;
+}
+
+.swiper {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 1rem; 
+}
+.swiper-wrapper{
+  box-sizing: content-box;
+}
+
+.swiper-slide{
+  display: flex;
+}
+
+.swiper-slide img{
+  width: 100%;
+  height: 100%;
+  border: 4px solid#fff;
+  border-radius: 1rem; 
+}
+
+.swiper-button-prev{
+  background:var(--hover-gradient);
+  border-radius: 4px;
+  box-shadow: var(--complex-shadow);
+  left: 20px;
+} 
+.swiper-button-next{
+  background:var(--hover-gradient);
+  border-radius: 4px;
+  box-shadow: var(--complex-shadow);
+  right: 20px;
+}
+.swiper-button-next::after, .swiper-button-prev::after{
+  font-size: 30px;
+  color: rgb(100, 0, 158);
 
 }
 

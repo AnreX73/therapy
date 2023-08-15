@@ -139,6 +139,24 @@ def category_page(request, slug):
     logo = Graphics.objects.get(title='логотип')
     favicon = Graphics.objects.get(title='фавикон')
     services_count = cat_services.count()
+    service_gallery = ServicesGallery.objects.all()
+    # service_video = Services.objects.filter(video=False).filter(is_published=True)
+    gallery_icon = Graphics.objects.get(title='иконка галереи')
+    video_icon = Graphics.objects.get(title='иконка видеофайла')
+    # print(service_video)
+    # for serv in cat_services:
+    #     if serv.video:
+    #         print(serv)
+    #     else:
+    #         print(serv,'no video')
+    btn = 0
+    for serg in service_gallery:
+        for serv in cat_services:
+            if serg.gallery_service_link_id == serv.id:
+                btn+=1
+               
+    
+
     
    
 
@@ -149,7 +167,11 @@ def category_page(request, slug):
         'unselected_categories':unselected_categories,
         'logo':logo,
         'favicon':favicon,
-        'services_count':services_count
+        'services_count':services_count,
+        'btn':btn,
+        'gallery_icon':gallery_icon,
+        'video_icon':video_icon
+        
     }
     return render(request, 'therapy/category_page.html', context=context)
 

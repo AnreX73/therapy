@@ -46,11 +46,50 @@
     <div class="category-page-content">
         <h3 class="category-content-title" >Описание</h3>
         {{ category.content|safe|linebreaks}}
+    <div class="gallary-link-box">
+     {% if btn %}   
+     <div id="js-open-gallery-modal" class="open-gallery-modal">
+        <img  src="{{ gallery_icon.image.url }}" alt="{{category.title}}"><span>{{ gallery_icon.note|safe }}</span>  
+    </div>
+    {% endif %}
+    <div id="js-open-video-modal" class="open-gallery-modal">
+        <img  src="{{ video_icon.image.url }}" alt="{{category.title}}"><span>{{ video_icon.note|safe }}</span>  
+    </div>  
+    
+    </div>
     </div>
     
 
 </div>
 </div>
-
+<div class="modal-gallery-wrapper modal-gallery-content">
+    {% for serv in services %} 
+    {% if serv.cat_id == category.id %}
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+        
+          {% for img in serv.servicesgallery_set.all %} 
+          {% if img.image %}
+          <div class="swiper-slide"><img src="{{ img.image.url}}" alt="img.note"></div>
+          {% endif %}
+          {% endfor %}
+          ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      
+        <!-- If we need scrollbar -->
+        
+      </div>
+      <svg class="js-gallery-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+    {% endif %}
+    {% endfor %}
+</div>
 
 {% endblock content %}

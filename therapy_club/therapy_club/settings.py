@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
-    'django_cleanup.apps.CleanupConfig',
-    'therapy.apps.TherapyConfig'
+    'therapy.apps.TherapyConfig',
+    'django_cleanup.apps.CleanupConfig'
 ]
 
 MIDDLEWARE = [

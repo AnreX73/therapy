@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     pagination: {
       el: '.swiper-pagination',
     },
-    effect:'fade',
+    effect:'cube',
     speed:500,
     
     grabCursor:true,
@@ -105,7 +105,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+});
 
+document.addEventListener('DOMContentLoaded', function() {
+  const openModalGallery = document.querySelector('#js-open-gallery-modal')
+  const overlay = document.querySelector('.overlay')
+  const modalGallery = document.querySelector('.modal-gallery-content')
+  const closeGalleryCrist = document.querySelector('.js-gallery-modal-close')
+  
+
+  openModalGallery.addEventListener('click', (e) =>{ 
+    e.preventDefault();
+    overlay.classList.add('active-modal');
+    modalGallery.classList.add('active-modal-gallery');
+   });
+    // закрытие модального окна при клике по крестику
+  closeGalleryCrist.addEventListener('click', (e) =>{ 
+  e.preventDefault();
+  overlay.classList.remove('active-modal');
+  modalGallery.classList.remove('active-modal-gallery');
+ });
+  closeGalleryCrist.addEventListener('touchend', (e) =>{ 
+  e.preventDefault();
+  overlay.classList.remove('active-modal');
+  modalGallery.classList.remove('active-modal-gallery');
+ });
+ // закрытие модального окна при клике по подложке 
+ overlay.addEventListener('click', function() {
+  document.querySelector('.modal-gallery-content.active-modal-gallery').classList.remove('active-modal-gallery');
+  this.classList.remove('active-modal');
+});
+ overlay.addEventListener('touchend', function() {
+  document.querySelector('.modal-gallery-content.active-modal-gallery').classList.remove('active-modal-gallery');
+  this.classList.remove('active-modal');
 });
 
 
+});
