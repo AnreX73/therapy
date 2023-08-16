@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
-
+// модальное окно страницы категории
 document.addEventListener('DOMContentLoaded', function() {
   const openModalGallery = document.querySelector('#js-open-gallery-modal')
   const overlay = document.querySelector('.overlay')
@@ -114,21 +114,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeGalleryCrist = document.querySelector('.js-gallery-modal-close')
   
 
-  openModalGallery.addEventListener('click', (e) =>{ 
-    e.preventDefault();
+  openModalGallery.addEventListener('click', () =>{    
     overlay.classList.add('active-modal');
     modalGallery.classList.add('active-modal-gallery');
    });
     // закрытие модального окна при клике по крестику
-  closeGalleryCrist.addEventListener('click', (e) =>{ 
-  e.preventDefault();
+  closeGalleryCrist.addEventListener('click', function() { 
   overlay.classList.remove('active-modal');
-  modalGallery.classList.remove('active-modal-gallery');
+  document.querySelector('.modal-gallery-content.active-modal-gallery').classList.remove('active-modal-gallery');
  });
-  closeGalleryCrist.addEventListener('touchend', (e) =>{ 
-  e.preventDefault();
+  closeGalleryCrist.addEventListener('touchend', function() { 
   overlay.classList.remove('active-modal');
-  modalGallery.classList.remove('active-modal-gallery');
+  document.querySelector('.modal-gallery-content.active-modal-gallery').classList.remove('active-modal-gallery');
  });
  // закрытие модального окна при клике по подложке 
  overlay.addEventListener('click', function() {
@@ -139,6 +136,14 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.modal-gallery-content.active-modal-gallery').classList.remove('active-modal-gallery');
   this.classList.remove('active-modal');
 });
+
+let slides = document.querySelectorAll('.gallery-slide'),
+ leftBtn = document.querySelector('.left-gallery-btn'),
+ rightBtn = document.querySelector('.right-gallery-btn'),
+ slideIndex = 0
+    
+slides[slideIndex].style.display = ('block');
+
 
 
 });
