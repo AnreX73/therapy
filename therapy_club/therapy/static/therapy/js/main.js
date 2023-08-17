@@ -108,16 +108,60 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // модальное окно страницы категории
 document.addEventListener('DOMContentLoaded', function() {
-  const openModalGallery = document.querySelector('#js-open-gallery-modal')
-  const overlay = document.querySelector('.overlay')
-  const modalGallery = document.querySelector('.modal-gallery-content')
-  const closeGalleryCrist = document.querySelector('.js-gallery-modal-close')
-  
+  const photoIcons = document.querySelectorAll('.mini-gallery-card');
+  const overlay = document.querySelector('.overlay');
+  const modalGallery = document.querySelector('.modal-gallery-content');
+  const bigPhotos = document.querySelectorAll('.gallery-slide');
+  const leftBtn = document.querySelector('.left-gallery-btn');
+  const rightBtn = document.querySelector('.right-gallery-btn');
+  const closeGalleryCrist = document.querySelector('.js-gallery-modal-close');
 
-  openModalGallery.addEventListener('click', () =>{    
-    overlay.classList.add('active-modal');
-    modalGallery.classList.add('active-modal-gallery');
-   });
+  photoIcons.forEach((item, index) =>{
+    item.addEventListener('click', () =>{
+      photoIndex = index;
+      openModalGallery();
+      appendBigPhoto();
+    })
+  })
+
+const openModalGallery = ()=>{
+  overlay.classList.add('active-modal');
+  modalGallery.classList.add('active-modal-gallery');
+}
+
+const appendBigPhoto = () =>{
+  bigPhotos.forEach((item) =>{
+    item.style.display = 'none'
+  })
+  bigPhotos[photoIndex].style.display = 'block'
+}
+
+leftBtn.addEventListener('click', ()=> {
+  if (photoIndex == 0){
+    photoIndex = bigPhotos.length - 1;
+    appendBigPhoto();
+  }else if (photoIndex != 0){
+    photoIndex--;
+    appendBigPhoto();
+  }else{
+    return
+  }
+  });
+
+rightBtn.addEventListener('click', ()=> {
+  if (photoIndex == bigPhotos.length - 1){
+    photoIndex = 0;
+    appendBigPhoto();
+  }else if (photoIndex != bigPhotos.length - 1){
+    photoIndex++;
+    appendBigPhoto();
+  }else{
+    return
+  }
+  });
+
+
+  
     // закрытие модального окна при клике по крестику
   closeGalleryCrist.addEventListener('click', function() { 
   overlay.classList.remove('active-modal');
@@ -137,12 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
   this.classList.remove('active-modal');
 });
 
-let slides = document.querySelectorAll('.gallery-slide'),
- leftBtn = document.querySelector('.left-gallery-btn'),
- rightBtn = document.querySelector('.right-gallery-btn'),
- slideIndex = 0
-    
-slides[slideIndex].style.display = ('block');
+
 
 
 

@@ -46,19 +46,22 @@
     <div class="category-page-content">
         <h3 class="category-content-title" >Описание</h3>
         {{ category.content|safe|linebreaks}}
-    <div class="gallary-link-box">
-     {% if btn %}   
-     <div id="js-open-gallery-modal" class="open-gallery-modal">
-        <img  src="{{ gallery_icon.image.url }}" alt="{{category.title}}"><span>{{ gallery_icon.note|safe }}</span>  
-    </div>
-    {% endif %}
-    {% if service_video %} 
-    <div id="js-open-video-modal" class="open-gallery-modal">
-        <img  src="{{ video_icon.image.url }}" alt="{{category.title}}"><span>{{ video_icon.note|safe }}</span>  
-    </div> 
-    {% endif %} 
-    
-    </div>
+        <div class="mini-gallery-wrapper">
+            {% for serv in services %} 
+            {% if serv.cat_id == category.id %}
+           
+                  
+                
+                  {% for img in serv.servicesgallery_set.all %} 
+                  {% if img.image %}
+                  <div class="mini-gallery-card"><img class="mini-gallery-img" src="{{ img.image.url}}" alt="img.note"></div>
+                  {% endif %}
+                  {% endfor %}
+                               
+            {% endif %}
+            {% endfor %}
+
+        </div>
     </div>
     
 
@@ -67,17 +70,12 @@
 <div class="modal-gallery-wrapper modal-gallery-content">
     {% for serv in services %} 
     {% if serv.cat_id == category.id %}
-   
-          
-        
+           
           {% for img in serv.servicesgallery_set.all %} 
           {% if img.image %}
-          <div class="gallery-slide gallery-slide-box"><img src="{{ img.image.url}}" alt="img.note"></div>
+          <div class="gallery-slide-box"><img class="gallery-slide" src="{{ img.image.url}}" alt="img.note"></div>
           {% endif %}
           {% endfor %}
-          
-        
-   
       
     {% endif %}
     {% endfor %}
