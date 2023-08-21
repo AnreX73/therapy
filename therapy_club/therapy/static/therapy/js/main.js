@@ -1,36 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
+  // const swiper = new Swiper('.swiper', {
+  //   // Optional parameters
+  //   direction: 'horizontal',
+  //   loop: true,
   
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    effect:'cube',
-    speed:500,
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
+  //   effect:'cube',
+  //   speed:500,
     
-    grabCursor:true,
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   grabCursor:true,
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
   
-    // And if we need scrollbar
+  //   // And if we need scrollbar
   
-  });
+  // });
   
   redButton = document.querySelector('.btn-5');
   miniButton = document.querySelector('.mini-btn');
   setTimeout(() => {
     
-    redButton.classList.add('slide-from-right');
-    miniButton.classList.add('slide-from-right');
     miniButton.classList.add('active');
     redButton.classList.add('active');
+    redButton.classList.add('slide-from-right');
+    miniButton.classList.add('slide-from-right');
+   
 
   }, 500);
   
@@ -102,8 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
  });
-
-
 
 });
 // модальное окно страницы категории
@@ -186,3 +185,44 @@ rightBtn.addEventListener('click', ()=> {
 
 
 });
+
+/* модальное окно для новости */
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.querySelector('.post-modal__cross')){
+      post_overlay = document.querySelector('#post-overlay-modal'),
+      closeButton = document.querySelector('.post-modal__cross');
+      modalElem = document.querySelector('.post-modal');
+      checkElem = sessionStorage.getItem("cookie-message");
+      if (checkElem == undefined) {
+          setTimeout(function(){
+              modalElem.classList.add('active');
+              post_overlay.classList.add('active');
+          },500)
+  
+        }
+      closeButton.addEventListener('click', function(e) {
+          var parentModal = this.closest('.post-modal');
+           sessionStorage.setItem("cookie-message", true);
+           parentModal.classList.remove('active');
+           post_overlay.classList.remove('active');
+        });
+  
+         /* закрытие по ESC */
+    document.body.addEventListener('keyup', function (e) {
+      var key = e.keyCode;
+      if (key == 27) {
+          sessionStorage.setItem("cookie-message", true);
+          document.querySelector('.post-modal.active').classList.remove('active');
+          document.querySelector('.post-overlay.active').classList.remove('active');
+      };
+    }, false);
+      /* скрытие окна при клике на подложку */
+      post_overlay.addEventListener('click', function() {
+          sessionStorage.setItem("cookie-message", true);
+          document.querySelector('.post-modal.active').classList.remove('active');
+          this.classList.remove('active');
+        });
+  }
+  
+  
+  });

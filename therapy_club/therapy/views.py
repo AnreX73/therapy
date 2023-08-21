@@ -6,7 +6,6 @@ from therapy.models import Services, Coaches, Post, ServiceCategory, Gallery, Co
 
 
 def index(request):
-    # services = Services.objects.exclude(title='х-запасной порт')
     logo = Graphics.objects.get(title='логотип')
     contacts = Contacts.objects.exclude(title='Карта').exclude(title='средняя карта').exclude(
         title='мини карта').exclude(title='микро карта')
@@ -19,11 +18,10 @@ def index(request):
     commerc_count = Commercial.objects.filter(is_published=True).count()
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
     favicon = Graphics.objects.get(title='фавикон')
+    news = Post.objects.get(title='Внимание !')
 
-    print(service_cats)
     context = {
         'title': 'THERAPY CLUB',
-        # 'services': services,
         'service_cats': service_cats,
         'contacts': contacts,
         'contacts_map': contacts_map,
@@ -34,7 +32,8 @@ def index(request):
         'contacts_mini_map': contacts_mini_map,
         'contacts_micro_map': contacts_micro_map,
         'commerc_count': commerc_count,
-        'favicon':favicon
+        'favicon':favicon,
+        'news':news
 
 
     }
@@ -140,6 +139,7 @@ def category_page(request, slug):
     favicon = Graphics.objects.get(title='фавикон')
     services_count = cat_services.count()
     service_video = Services.objects.exclude(video='').filter(cat_id=category.id).filter(is_published=True).order_by('-pk')[:1]
+    print(service_video)
     
       
 

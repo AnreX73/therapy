@@ -91,8 +91,9 @@ class PostGalleryAdmin(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     inlines = [PostGalleryAdmin]
-    list_display = ('id', 'post_cat', 'title',)
+    list_display = ('id', 'post_cat', 'title','is_published',)
     list_display_links = ('id', 'title')
+    list_editable = ('is_published',)
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     save_on_top = True

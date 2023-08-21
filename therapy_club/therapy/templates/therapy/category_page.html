@@ -40,7 +40,13 @@
         {% endif %}
         {% endfor %}
     </div>
-    {{ services_count }}
+    {% if services_count < 2 %}
+    {% for video in service_video %}
+    <div class="video-box">
+    <video  controls  src="{{video.video.url}}" type="video/mp4"></video> 
+    </div>
+    {% endfor %}
+    {% endif %}
     </div>
     
     <div class="category-page-content">
@@ -62,6 +68,13 @@
             {% endfor %}
 
         </div>
+        {% if services_count >= 2 %}
+        {% for video in service_video %}
+        <div class="video-box">
+        <video  controls  src="{{video.video.url}}" type="video/mp4"></video> 
+        </div>
+        {% endfor %}
+        {% endif %}
     </div>
     
 
