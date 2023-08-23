@@ -18,7 +18,7 @@ def index(request):
     commerc_count = Commercial.objects.filter(is_published=True).count()
     service_cats = ServiceCategory.objects.exclude(title='Запасной порт').order_by('pk')
     favicon = Graphics.objects.get(title='фавикон')
-    news = Post.objects.get(title='Внимание !')
+    news = Post.objects.filter(title='Внимание !')
 
     context = {
         'title': 'THERAPY CLUB',
@@ -32,9 +32,8 @@ def index(request):
         'contacts_mini_map': contacts_mini_map,
         'contacts_micro_map': contacts_micro_map,
         'commerc_count': commerc_count,
-        'favicon':favicon,
-        'news':news
-
+        'favicon': favicon,
+        'news': news
 
     }
 
@@ -47,7 +46,8 @@ def service(request, slug):
     service_abo = Abonements.objects.filter(service_link_id=service_item.id)
     logo = Graphics.objects.get(title='логотип')
     gallery = ServicesGallery.objects.filter(gallery_service_link_id=service_item.id)
-    service_links = Services.objects.filter(cat_id=service_item.cat_id).filter(is_published=True).exclude(id=service_item.id).values('title','slug')
+    service_links = Services.objects.filter(cat_id=service_item.cat_id).filter(is_published=True).exclude(
+        id=service_item.id).values('title', 'slug')
     if service_item.cat_id == 2:
         word = 'одного занятия'
     elif service_item.cat_id == 4:
@@ -61,8 +61,8 @@ def service(request, slug):
         'word': word,
         'logo': logo,
         'gallery': gallery,
-        'service_links':service_links,
-        'favicon':favicon
+        'service_links': service_links,
+        'favicon': favicon
     }
     return render(request, 'therapy/service.html', context=context)
 
@@ -74,7 +74,7 @@ def rules(request):
     context = {
         'title': 'Правила посещения',
         'rules': rules,
-        'favicon':favicon
+        'favicon': favicon
 
     }
 
@@ -90,7 +90,7 @@ class Coaches(ListView):
     extra_context = {
         'title': 'Наша команда',
         'logo': logo,
-        'favicon':favicon
+        'favicon': favicon
 
     }
 
@@ -105,9 +105,9 @@ def actions_page(request):
     logo = Graphics.objects.get(title='логотип')
     context = {
         'title': 'Акции',
-         'logo': logo,
-         'actions': actions,
-         'favicon':favicon
+        'logo': logo,
+        'actions': actions,
+        'favicon': favicon
     }
 
     return render(request, 'therapy/actions.html', context=context)
@@ -124,11 +124,12 @@ def prices(request):
         'services': services,
         'cats': cats,
         'abonements': abonements,
-        'favicon':favicon
+        'favicon': favicon
 
     }
 
     return render(request, 'therapy/prices.html', context=context)
+
 
 def category_page(request, slug):
     category = get_object_or_404(ServiceCategory, slug=slug)
@@ -138,20 +139,18 @@ def category_page(request, slug):
     logo = Graphics.objects.get(title='логотип')
     favicon = Graphics.objects.get(title='фавикон')
     services_count = cat_services.count()
-    service_video = Services.objects.exclude(video='').filter(cat_id=category.id).filter(is_published=True).order_by('-pk')[:1]
+    service_video = Services.objects.exclude(video='').filter(cat_id=category.id).filter(is_published=True).order_by(
+        '-pk')[:1]
     print(service_video)
-    
-      
 
     context = {
-        'title':title,
-        'services':cat_services,
-        'category':category,
-        'unselected_categories':unselected_categories,
-        'logo':logo,
-        'favicon':favicon,
-        'services_count':services_count,
-        'service_video':service_video        
+        'title': title,
+        'services': cat_services,
+        'category': category,
+        'unselected_categories': unselected_categories,
+        'logo': logo,
+        'favicon': favicon,
+        'services_count': services_count,
+        'service_video': service_video
     }
     return render(request, 'therapy/category_page.html', context=context)
-

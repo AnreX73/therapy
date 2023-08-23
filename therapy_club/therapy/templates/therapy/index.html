@@ -6,17 +6,21 @@
 {% include 'therapy/components/comerc_block.html'%}
 
 <!--   модальное окно новости  -->
-{% if news.is_published %}
+
+{% for new in news %}
+{% if new.is_published %}
 <div class="post-modal" data-modal="1">
     
     <span class="post-modal__cross" > Х </span>
 
-    <h3 class="post-modal__title">{{news.title}}</h3>
-    <div class="post-modal__content">{{news.content|safe}}</div>
+    <h3 class="post-modal__title">{{new.title}}</h3>
+    <div class="post-modal__content">{{new.content|safe}}</div>
 
  </div>
  <div class="post-overlay" id="post-overlay-modal"></div>
  {% endif %}
+{% endfor %}
+
   <!--  конец модальное окно новости  -->
 
 <div class="modal-action-wrapper modal-content">
