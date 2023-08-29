@@ -141,7 +141,8 @@ def category_page(request, slug):
     services_count = cat_services.count()
     service_video = Services.objects.exclude(video='').filter(cat_id=category.id).filter(is_published=True).order_by(
         '-pk')[:1]
-    print(service_video)
+    service_posts = Post.objects.filter(post_cat_id__cat_id=category.id)
+    category_gallery = ServicesGallery.objects.filter(gallery_service_link_id__cat_id=category.id)
 
     context = {
         'title': title,
@@ -151,6 +152,20 @@ def category_page(request, slug):
         'logo': logo,
         'favicon': favicon,
         'services_count': services_count,
-        'service_video': service_video
+        'service_video': service_video,
+        'service_posts': service_posts,
+        'category_gallery': category_gallery
     }
     return render(request, 'therapy/category_page.html', context=context)
+
+
+def post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    unselected_posts = Post.objects.exclude(id=post.id)
+
+    context = {
+        'post': post,
+        'unselected_posts': unselected_posts
+
+    }
+    return render(request, 'therapy/post_page.html', context=context)

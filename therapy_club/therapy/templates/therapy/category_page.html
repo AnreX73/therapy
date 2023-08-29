@@ -36,11 +36,15 @@
         </div>
         {% endif %}
         {% endfor %}
+
         <hr class="price-line">
         {% endif %}
         {% endfor %}
     </div>
     {% if services_count < 2 %}
+    {% if service_video %}
+    <h3 style="color: #4f0780;"> Видео </h3>
+    {% endif %}
     {% for video in service_video %}
     <div class="video-box">
     <video  controls  src="{{video.video.url}}" type="video/mp4"></video> 
@@ -52,29 +56,36 @@
     <div class="category-page-content">
         <h3 class="category-content-title" >Описание</h3>
         {{ category.content|safe|linebreaks}}
+        {% if category_gallery %}
+        <h3 style="color: #4f0780;"> Галерея </h3>
+        {% endif %}
         <div class="mini-gallery-wrapper">
-            {% for serv in services %} 
-            {% if serv.cat_id == category.id %}
            
-                  
-                
-                  {% for img in serv.servicesgallery_set.all %} 
+                  {% for img in category_gallery %} 
                   {% if img.image %}
                   <div class="mini-gallery-card"><img class="mini-gallery-img" src="{{ img.image.url}}" alt="img.note"></div>
                   {% endif %}
                   {% endfor %}
-                               
-            {% endif %}
-            {% endfor %}
-
         </div>
         {% if services_count >= 2 %}
+        {% if service_video %}
+        <h3 style="color: #4f0780;"> Видео </h3>
+        {% endif %}
         {% for video in service_video %}
         <div class="video-box">
         <video  controls  src="{{video.video.url}}" type="video/mp4"></video> 
         </div>
         {% endfor %}
         {% endif %}
+        {% if service_posts %}
+        <h3 style="color: #4f0780;"> Статьи </h3>
+        {% endif %}
+        {% for post in service_posts %}
+        {% if post %}
+        <a href="{% url 'post_page' post.slug %}"><h4>{{ post.title}}  >>></h4> </a>
+            
+        {% endif %}
+        {% endfor %}
     </div>
     
 
