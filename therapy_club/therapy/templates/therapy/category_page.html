@@ -82,7 +82,7 @@
         {% endif %}
         {% for post in service_posts %}
         {% if post %}
-        <a href="{% url 'post_page' post.slug %}"><h4>{{ post.title}}  >>></h4> </a>
+        <a style="color: #5c5c5c;" href="{% url 'post_page' post.slug %}"><h4 style="display: flex;align-items: center;">{{ post.title}} <span style="color: #4f0780;font-size: 2rem;">&#10144;</span>  </h4> </a>
             
         {% endif %}
         {% endfor %}

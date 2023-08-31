@@ -1218,7 +1218,10 @@ align-items:center;
   height: 100%;
 }
 .alt-category-link{
-  text-align: right;
+  display: flex;
+  align-items: center;
+  
+  justify-content: right;
   color: #4f0780;
 }
 @media (max-width: 767px) {
