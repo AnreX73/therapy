@@ -1220,7 +1220,6 @@ align-items:center;
 .alt-category-link{
   display: flex;
   align-items: center;
-  
   justify-content: right;
   color: #4f0780;
 }
@@ -1619,6 +1618,30 @@ border: 4px solid #fff;
   }
 /* end Стили для модальных окон */
 
+.all-posts-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  
+}
+.main-post-container, .else-posts-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border: 4px solid #fff;
+  border-radius: 1rem;
+  
+  padding: 1rem;
+}
+.main-post-container p{
+text-align: justify;
+}
+
+.else-posts-container p{
+  text-align: justify;
+}
 /*анимация*/
 .slide-from-right {
 	animation: SlideFromRight 600ms ease 0s 1 normal forwards;

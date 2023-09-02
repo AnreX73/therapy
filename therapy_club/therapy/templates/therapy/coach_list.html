@@ -9,7 +9,9 @@
 
 <div class="coach-list-wrapper">
     {% for coach in coaches %}
+    {% if coach.is_published %}
     {% include  'therapy/components/coach_card.html' %}
+    {% endif %}
     {% endfor%}
 </div>
 

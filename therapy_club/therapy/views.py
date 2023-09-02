@@ -161,7 +161,7 @@ def category_page(request, slug):
 
 def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    unselected_posts = Post.objects.exclude(id=post.id)
+    unselected_posts = Post.objects.exclude(id=post.id).exclude(post_cat__title='х-запасной порт').filter(is_published=True)
 
     context = {
         'post': post,
